@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../UI/Navbar";
+import HeaderNav from "../UI/Navbar";
 
 const header = props => (
   <div className="childOneHeader">
-    <Navbar />
+    <HeaderNav />
   </div>
 );
 

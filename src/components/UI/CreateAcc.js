@@ -1,8 +1,12 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 const CreateAcc = props => (
   <div className="createAcc">
-    <button> Create Account</button>
+    <Button variant="link" size="lg">
+      {" "}
+      Create Account
+    </Button>
   </div>
 );
 

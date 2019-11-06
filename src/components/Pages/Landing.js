@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 const LandingPage = props => (
   <div className="childTwoLandingBody">
     <div className="landingText">
-      <h6>
+      <h6 className="LandingFirstText">
         Find your perfect trip, designed by insiders who know and love their
         cities.
       </h6>
-      <h3> Start Browsing</h3>
+      <h3 className="LandingSecondText"> Start Browsing</h3>
       <div className="arrowImage">
         <img src={require("../../Images/circled.png")} alt="arrow" />
       </div>
-      <p>Want to build your own MYtinerary?</p>
+      <p className="LandingThirdText"> Want to build your own MYtinerary?</p>
     </div>
     <div className="accessLinks">
       <Link to="/logging">

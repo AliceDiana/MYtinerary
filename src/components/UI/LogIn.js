@@ -1,8 +1,12 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 const LogIn = props => (
   <div className="logIn">
-    <button> Log In</button>
+    <Button variant="link" size="lg">
+      {" "}
+      Log In{" "}
+    </Button>
   </div>
 );
 

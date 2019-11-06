@@ -1,25 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCity } from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
 const ToolBar = props => (
-  <nav>
-    <ul class="nav_links">
-      <li>
-        <Link to="/">
-          <img
-            className="imageFooter"
-            src={require("../../Images/homeIcon.png")}
-            alt="homeButton"
-          />{" "}
-        </Link>
-      </li>
-      <li>
-        <Link to="/cities"> Cities</Link>
-      </li>
-      <li>
-        <Link to="/cities"> Cities</Link>
-      </li>
-    </ul>
-  </nav>
+  <Navbar
+    className="nav_links"
+    fixed="bottom"
+    expand="lg"
+    variant="light"
+    bg="light"
+  >
+    <Link to="/">
+      <FontAwesomeIcon icon={faHome} /> Home
+    </Link>
+    <Link to="/cities">
+      <FontAwesomeIcon icon={faCity} /> Cities
+    </Link>
+  </Navbar>
 );
 
 export default ToolBar;

@@ -1,13 +1,14 @@
 import React from "react";
+import { Navbar } from "react-bootstrap";
 
-const Navbar = props => (
-  <nav className="navbar">
+const HeaderNav = props => (
+  <Navbar className="navHeader" fixed="top" expand="lg">
     <img
       alt="logo"
       src={require("../../Images/logo.png")}
       className="logoNav"
-    />{" "}
-  </nav>
+    />
+  </Navbar>
 );
 
-export default Navbar;
+export default HeaderNav;

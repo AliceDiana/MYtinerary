@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import LandingPage from "./components/Pages/Landing";
