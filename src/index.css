@@ -6,36 +6,79 @@ body {
   background-color: white;
 }
 
-code {
-  font-family: "Open Sans", sans-serif;
+.parent {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.header {
-  height: 56px;
+/* Style Header  */
+
+.childOneHeader {
+  height: 14vh;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
-.logo {
-  height: 164%;
+.navbar {
+  background-color: white;
+  padding: 1.5rem 1rem;
 }
 
-.logo img {
-  height: 100%;
+.logoNav {
+  width: 48%;
+}
+
+/* Style Landing page */
+
+.childTwoLandingBody {
+  height: 72vh;
+  width: 100%;
+  text-align: center;
+  margin-top: 58px;
+}
+.accessLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+h6 {
+  font-size: 21px;
+}
+
+h3 {
+  margin-top: 40px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+.arrowImage img {
+  width: 34%;
+  margin-top: 10px;
+}
+
+/* Style Footer  */
+
+.childThreeFooter {
+  height: 14vh;
+  width: 100%;
+  display: flex;
+}
+
+.nav_links {
+  list-style: none;
+  display: flex;
+}
+
+.nav_links li {
+  padding: 0px 20px;
 }
 
 .imageFooter {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-}
-
-.imageFooter img {
   width: 10%;
-}
-
-.landing {
-  margin-top: 80px;
 }

@@ -1,9 +1,9 @@
 import React from "react";
-import Logo from "../../Logo/Logo";
+import Navbar from "../UI/Navbar";
 
 const header = props => (
-  <div className="header">
-    <Logo />
+  <div className="childOneHeader">
+    <Navbar />
   </div>
 );
 

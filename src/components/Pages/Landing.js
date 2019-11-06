@@ -1,17 +1,31 @@
 import React from "react";
-import LogIn from "../LogIn/Login";
-import CreateAccount from "../CreateAccount/Createacc";
+import LogIn from "../UI/LogIn";
+import CreateAccount from "../UI/CreateAcc";
+import { Link } from "react-router-dom";
 
 const LandingPage = props => (
-  <div className="landing">
-    <p>
-      Find your perfect trip, designed by insiders who know and love their
-      cities.
-    </p>
-    <h3> Start Browsing</h3>
-    <p>Want to build your own MYtinerary?</p>
-    <LogIn />
-    <CreateAccount />
+  <div className="childTwoLandingBody">
+    <div className="landingText">
+      <h6>
+        Find your perfect trip, designed by insiders who know and love their
+        cities.
+      </h6>
+      <h3> Start Browsing</h3>
+      <div className="arrowImage">
+        <img src={require("../../Images/circled.png")} alt="arrow" />
+      </div>
+      <p>Want to build your own MYtinerary?</p>
+    </div>
+    <div className="accessLinks">
+      <Link to="/logging">
+        {" "}
+        <LogIn />
+      </Link>
+      <Link to="/creating">
+        {" "}
+        <CreateAccount />
+      </Link>
+    </div>
   </div>
 );
 
