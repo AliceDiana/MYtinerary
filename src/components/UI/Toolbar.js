@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCity } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 const ToolBar = props => (
   <Navbar
-    className="nav_links"
+    className="toolbar_links"
     fixed="bottom"
     expand="lg"
     variant="light"
