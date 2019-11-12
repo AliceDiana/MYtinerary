@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Logo from "../UI/Logo";
-import LogIn from "../UI/LogIn";
-import CreateAccount from "../UI/CreateAcc";
-import ToolBar from "../UI/Toolbar";
+import Logo from "../components/UI/Logo";
+import LogIn from "../components/UI/LogIn";
+import CreateAccount from "../components/UI/CreateAcc";
+import ToolBar from "../components/UI/Toolbar";
 import { Link } from "react-router-dom";
 
 const LandingPage = props => (
@@ -31,7 +31,7 @@ const LandingPage = props => (
         <Col xs={{ span: 9, offset: 3 }}>
           <img
             className="arrowImage"
-            src={require("../../Images/circled.png")}
+            src={require("../Images/circled.png")}
             alt="arrow"
           />
         </Col>

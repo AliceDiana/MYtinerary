@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Logo from "../UI/Logo";
-import NavBarV2 from "../UI/NavbarV2";
-import Slideshow from "../UI/Carousel";
+import Logo from "../components/UI/Logo";
+import NavBarV2 from "../components/UI/NavbarV2";
+import Slideshow from "../components/UI/Carousel";
 
 const LandingPageV2 = props => (
   <React.Fragment>
@@ -24,7 +24,7 @@ const LandingPageV2 = props => (
       <Row>
         <Col xs={{ span: 3, offset: 4 }}>
           <div className="arrowImageV2">
-            <img src={require("../../Images/circled.png")} alt="arrow" />
+            <img src={require("../Images/circled.png")} alt="arrow" />
           </div>
         </Col>
       </Row>

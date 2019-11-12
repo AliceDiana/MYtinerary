@@ -14,10 +14,10 @@ const NavBarV2 = props => (
     className="navHeaderV2"
   >
     <Nav>
-      <ul class="navbar-nav ml-auto nav-flex-icons">
-        <li class="nav-item avatar dropdown">
+      <ul className="navbar-nav ml-auto nav-flex-icons">
+        <li className="nav-item avatar dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            className="nav-link dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
@@ -25,16 +25,16 @@ const NavBarV2 = props => (
             <FontAwesomeIcon icon={faUser} />
           </a>
           <ul
-            class="dropdown-menu dropdown-secondary"
+            className="dropdown-menu dropdown-secondary"
             aria-labelledby="navbarDropdownMenuLink-55"
           >
             <li>
-              <Link to="/logging" class="dropdown-item">
+              <Link to="/logging" className="dropdown-item">
                 Log In
               </Link>
             </li>
             <li>
-              <Link to="/creating" class="dropdown-item">
+              <Link to="/creating" className="dropdown-item">
                 Create Account
               </Link>
             </li>

@@ -107,3 +107,9 @@ li {
 .imgCarousel {
   width: 100%;
 }
+
+/*************************** Style City Page  *******************************/
+
+.cityCard {
+  margin-top: 58px;
+}
