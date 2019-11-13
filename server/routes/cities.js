@@ -11,4 +11,13 @@ router.get("/all", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.post("/", (req, res) => {
+  const newCity = new cityModel({
+    name: req.body.name,
+    country: req.body.country
+  });
+  newCity.save().then(city => {
+    res.send(city);
+  });
+});
 module.exports = router;
