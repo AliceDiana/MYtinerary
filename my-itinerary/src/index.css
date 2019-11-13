@@ -59,13 +59,16 @@ body {
 
 .toolbar_links {
   list-style: none;
-  display: flex;
   height: 10%;
 }
 
 .toolbar_links a {
   padding: 0px 20px;
   color: black;
+}
+.homeIcon {
+  font-size: 34px;
+  margin-left: 156px;
 }
 
 /*************************** Style Landing Page 2 *******************************/
@@ -83,7 +86,9 @@ body {
 li {
   font-size: 18px;
   color: whitesmoke;
+  font-weight: solid;
 }
+
 /* Style Body */
 .logo img {
   width: 100%;

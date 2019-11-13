@@ -2,12 +2,12 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 
 const CityCard = props => (
-  <Card border="secondary" className="cityCard">
-    <Card.Img variant="top" src={require("../../Images/bcn.jpg")} />
-    <Card.Body>
-      <Card.Title> {props.city.name}</Card.Title>
-      <Card.Text> {props.city.country}</Card.Text>
-    </Card.Body>
+  <Card className="bg-dark text-white cityCard">
+    <Card.Img src={require("../../Images/bcn.jpg")} alt="Card image" />
+    <Card.ImgOverlay>
+      <Card.Title className="text-white"> {props.city.name}</Card.Title>
+      <Card.Text className="text-white"> {props.city.country}</Card.Text>
+    </Card.ImgOverlay>
   </Card>
 );
 

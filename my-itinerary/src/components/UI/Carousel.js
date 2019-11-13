@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Card, CardColumns } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 
 export default function Slideshow() {

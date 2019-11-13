@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCity } from "@fortawesome/free-solid-svg-icons";
+// import { faCity } from "@fortawesome/free-solid-svg-icons";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { Navbar } from "react-bootstrap";
 const ToolBar = props => (
@@ -13,11 +13,11 @@ const ToolBar = props => (
     bg="light"
   >
     <Link to="/">
-      <FontAwesomeIcon icon={faHome} /> Home
+      <FontAwesomeIcon icon={faHome} className="homeIcon" />
     </Link>
-    <Link to="/cities">
+    {/* <Link to="/cities">
       <FontAwesomeIcon icon={faCity} /> Cities
-    </Link>
+    </Link> */}
   </Navbar>
 );
 
