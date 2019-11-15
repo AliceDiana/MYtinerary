@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Logo from "../components/UI/Logo";
 import NavBarV2 from "../components/UI/NavbarV2";
@@ -23,9 +24,9 @@ const LandingPageV2 = props => (
       </Row>
       <Row>
         <Col xs={{ span: 3, offset: 4 }}>
-          <div className="arrowImageV2">
+          <Link to="/cities" className="arrowImageV2">
             <img src={require("../Images/circled.png")} alt="arrow" />
-          </div>
+          </Link>
         </Col>
       </Row>
       <Row>

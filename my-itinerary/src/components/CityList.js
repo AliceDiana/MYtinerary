@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux"; // connect component to  redux store.
-
 import { fetchCities } from "../store/actions/cityAction";
 import LoadingSpinner from "./UI/LoadingSpinner";
 import CityCard from "../components/UI/CityCard";
@@ -11,8 +10,8 @@ class CityList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialCities: [],
-      cities: []
+      cities: [],
+      search: ""
     };
   }
 
@@ -29,16 +28,15 @@ class CityList extends React.Component {
   }
 
   filterList = event => {
-    let cities = this.state.initialCities;
-    cities = cities.filter(city => {
-      return (
-        city.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1
-      );
-    });
-    this.setState({ cities: cities });
-  };
+    this.setState({ search: event.target.value.toLowerCase() });
+  }; //saves in the status search the values that we digit in the search bar
 
   render() {
+    var cities = this.state.cities.filter(city => {
+      //filters the city based on the values entered in the search bar
+      return city.name.toLowerCase().search(this.state.search) !== -1;
+    });
+
     return (
       <React.Fragment>
         <Container>
@@ -57,13 +55,11 @@ class CityList extends React.Component {
           </Row>
           <Row>
             <Col xs={{ span: 12, offset: 0 }}>
-              {this.state.cities.map(city => {
-                return (
-                  <div key={city._id}>
-                    <CityCard city={city} />
-                  </div>
-                );
-              })}
+              {cities.map(city => (
+                <div key={city._id}>
+                  <CityCard city={city} />
+                </div>
+              ))}
             </Col>
           </Row>
         </Container>

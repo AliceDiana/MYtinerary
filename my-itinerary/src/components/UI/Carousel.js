@@ -28,33 +28,6 @@ export default function Slideshow() {
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src="https://i.ibb.co/3B02rYW/alejandro-cartagena-B64-B6-k-AWlw-unsplash.jpg"
-            alt="alejandro-cartagena-B64-B6-k-AWlw-unsplash"
-            border="0"
-          />
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <img
-            className="imgCarousel"
-            src="https://i.ibb.co/VLTL0ms/adam-jang-Molhe1q-QRWI-unsplash.jpg"
-            alt="adam-jang-Molhe1q-QRWI-unsplash"
-            border="0"
-          />
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <img
-            className="imgCarousel"
-            src="https://i.ibb.co/VLTL0ms/adam-jang-Molhe1q-QRWI-unsplash.jpg"
-            alt="adam-jang-Molhe1q-QRWI-unsplash"
-            border="0"
-          />
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <img
-            className="imgCarousel"
             src="https://i.ibb.co/6gn57y5/newy.jpg"
             alt="newy"
             border="0"
