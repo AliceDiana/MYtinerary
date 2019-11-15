@@ -1,4 +1,8 @@
 import React from "react";
+import { connect } from "react-redux"; // connect component to  redux store.
+
+import { fetchCities } from "../store/actions/cityAction";
+import LoadingSpinner from "./UI/LoadingSpinner";
 import CityCard from "../components/UI/CityCard";
 import { Form, FormControl } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
@@ -13,19 +17,15 @@ class CityList extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/cities/all")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          initialCities: data,
-          cities: data
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    const { fetchCities } = this.props;
+    fetchCities();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    this.setState({
+      cities: nextProps.cities
+    });
   }
 
   filterList = event => {
@@ -72,4 +72,10 @@ class CityList extends React.Component {
   }
 }
 
-export default CityList;
+const mapStateToProps = state => ({
+  error: state.cities.error,
+  cities: state.cities.cities,
+  pending: state.cities.pending
+});
+
+export default connect(mapStateToProps, { fetchCities })(CityList);

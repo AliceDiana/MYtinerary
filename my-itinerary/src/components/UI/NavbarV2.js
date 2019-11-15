@@ -3,7 +3,6 @@ import { Navbar, Nav } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 
 const NavBarV2 = props => (
   <Navbar
@@ -18,7 +17,7 @@ const NavBarV2 = props => (
       <ul className="navbar-nav ml-auto nav-flex-icons">
         <li className="nav-item avatar dropdown">
           <a
-            href="#"
+            href="/#"
             className="nav-link dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"

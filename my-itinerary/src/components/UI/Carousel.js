@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardColumns } from "react-bootstrap";
+
 import Carousel from "react-bootstrap/Carousel";
 
 export default function Slideshow() {
@@ -10,111 +10,64 @@ export default function Slideshow() {
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src={require("../../Images/amst.jpg")}
-            alt="x"
+            src="https://i.ibb.co/YPS1cG4/alexander-kagan-t9-Td0zf-DTw-I-unsplash.jpg"
+            alt="alexander-kagan-t9-Td0zf-DTw-I-unsplash"
+            border="0"
           />
-          <Carousel.Caption>
-            <h3>Amsterdam</h3>
-          </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src={require("../../Images/athens.jpg")}
-            alt="y"
+            src="https://i.ibb.co/VLTL0ms/adam-jang-Molhe1q-QRWI-unsplash.jpg"
+            alt="adam-jang-Molhe1q-QRWI-unsplash"
+            border="0"
           />
-          <Carousel.Caption>
-            <h3>Athens</h3>
-          </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src={require("../../Images/bcn.jpg")}
-            alt="z"
+            src="https://i.ibb.co/3B02rYW/alejandro-cartagena-B64-B6-k-AWlw-unsplash.jpg"
+            alt="alejandro-cartagena-B64-B6-k-AWlw-unsplash"
+            border="0"
           />
-          <Carousel.Caption>
-            <h3>Barcelona</h3>
-          </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src={require("../../Images/berlin.jpg")}
-            alt="a"
+            src="https://i.ibb.co/VLTL0ms/adam-jang-Molhe1q-QRWI-unsplash.jpg"
+            alt="adam-jang-Molhe1q-QRWI-unsplash"
+            border="0"
           />
-          <Carousel.Caption>
-            <h3>Berlin</h3>
-          </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src={require("../../Images/budapest.jpg")}
-            alt="b"
+            src="https://i.ibb.co/VLTL0ms/adam-jang-Molhe1q-QRWI-unsplash.jpg"
+            alt="adam-jang-Molhe1q-QRWI-unsplash"
+            border="0"
           />
-          <Carousel.Caption>
-            <h3>Budapest</h3>
-          </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src={require("../../Images/lisbon.jpg")}
-            alt="d"
+            src="https://i.ibb.co/6gn57y5/newy.jpg"
+            alt="newy"
+            border="0"
           />
-          <Carousel.Caption>
-            <h3>Lisbon</h3>
-          </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="imgCarousel"
-            src={require("../../Images/bcn.jpg")}
-            alt="e"
+            src="https://i.ibb.co/dts9n4Z/christopher-czermak-7yb-Kmh-DTcz0-unsplash.jpg"
+            alt="christopher-czermak-7yb-Kmh-DTcz0-unsplash"
+            border="0"
           />
-          <Carousel.Caption>
-            <h3>Barcelona</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <img
-            className="imgCarousel"
-            src={require("../../Images/london.jpg")}
-            alt="f"
-          />
-          <Carousel.Caption>
-            <h3>London</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <img
-            className="imgCarousel"
-            src={require("../../Images/madrid.jpg")}
-            alt="g"
-          />
-          <Carousel.Caption>
-            <h3>Madrid</h3>
-          </Carousel.Caption>
-        </Carousel.Item>
-
-        <Carousel.Item>
-          <img
-            className="imgCarousel"
-            src={require("../../Images/newy.jpg")}
-            alt="l"
-          />
-          <Carousel.Caption>
-            <h3>New York</h3>
-          </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </div>
