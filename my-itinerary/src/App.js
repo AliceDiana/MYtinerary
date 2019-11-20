@@ -18,7 +18,7 @@ class App extends Component {
           {/* <Route exact path="/" component={LandingPage} /> */}
           <Route exact path="/" component={LandingPageV2} />
           <Route path="/cities" component={CitiesPage} />
-          <Route path="/:name" component={ItinerariesPage} />
+          <Route path="/:city_id" component={ItinerariesPage} />
           <Route path="/logging" component={LoggingPage} />
           <Route path="/creating" component={CreatingPage} />
         </Switch>

@@ -7,13 +7,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import Toolbar from "../components/UI/Toolbar";
 import { Link } from "react-router-dom";
 
-const ItinerariesPage = ({ match }) => (
+const ItinerariesPage = props => (
   <React.Fragment>
     <NavBarV2 />
     <Container id="containerLandingV2">
       <Row className="itineraryDisplayContainer">
         <Col xs={{ span: 12, offset: 0 }}>
-          <ItineraryList />
+          <ItineraryList cityId={props.match.params.city_id} />
         </Col>
       </Row>
       <Row>

@@ -17,9 +17,9 @@ router.get("/:city_id", (req, res) => {
   let itineraryRequested = req.params.city_id;
 
   itineraryModel
-    .findOne({ city_id: itineraryRequested })
-    .then(itinerary => {
-      res.send(itinerary);
+    .find({ city_id: itineraryRequested })
+    .then(itineraries => {
+      res.send(itineraries);
     })
     .catch(err => console.log(err));
 });

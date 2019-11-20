@@ -19,10 +19,10 @@ export function fetchItineraryError(error) {
 
 // I am preparing my fetch to retrieve the itinerary list
 
-export function fetchItineraries() {
+export function fetchItineraries(city_id) {
   return dispatch => {
     // dispatch  pending action.
-    fetch("/itineraries/all")
+    fetch("/itineraries/" + city_id)
       .then(res => {
         if (res.ok) {
           return res.json();

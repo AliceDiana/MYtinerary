@@ -7,13 +7,16 @@ import { fetchItineraries } from "../store/actions/itineraryAction";
 import { Container, Row, Col } from "react-bootstrap";
 
 class ItineraryList extends React.Component {
-  state = {
-    itineraries: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      itineraries: []
+    };
+  }
 
   componentDidMount() {
     const { fetchItineraries } = this.props;
-    fetchItineraries();
+    fetchItineraries(this.props.cityId);
   }
 
   componentWillReceiveProps(nextProps) {
