@@ -2,25 +2,25 @@
 // and I am passing them to the reducer
 
 import {
-  FETCH_CITIES_PENDING,
+  // FETCH_CITIES_PENDING,
   FETCH_CITIES_SUCCESS,
   FETCH_CITIES_ERROR
 } from "../actions/cityAction";
 
 //defining the initial state
 const initialState = {
-  pending: false,
+  // pending: false,
   cities: [],
   error: null
 };
 
 export function citiesReducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_CITIES_PENDING:
-      return {
-        ...state,
-        pending: true
-      };
+    // case FETCH_CITIES_PENDING:
+    //   return {
+    //     ...state,
+    //     pending: true
+    //   };
     case FETCH_CITIES_SUCCESS:
       return {
         ...state,

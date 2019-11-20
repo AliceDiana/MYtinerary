@@ -13,8 +13,8 @@ const CitiesPage = props => (
           <CityList />
         </Col>
       </Row>
+      <Toolbar />
     </Container>
-    <Toolbar />
   </React.Fragment>
 );
 

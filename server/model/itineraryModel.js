@@ -1,3 +1,5 @@
+//itineray model scheme
+
 const mongoose = require("mongoose");
 const itinerarySchema = new mongoose.Schema({
   title: {
@@ -5,28 +7,36 @@ const itinerarySchema = new mongoose.Schema({
     required: true
   },
   img: {
-    type: URL,
+    type: String,
     required: true
   },
   rating: {
-    type: Number,
+    type: String,
     required: true
   },
   duration: {
-    type: Number,
+    type: String,
     required: true
   },
   price: {
-    type: Number,
+    type: String,
     required: true
   },
   hashtags: {
+    type: String
+  },
+  city_id: {
+    type: String,
+    required: true
+  },
+  imgCity: {
+    type: String,
+    required: true
+  },
+  host: {
     type: String,
     required: true
   }
-  city:{
-    type: Number
-    required: true
-  }
 });
+
 module.exports = mongoose.model("itinerary", itinerarySchema);

@@ -1,13 +1,13 @@
 //creating my three actions: loading fetch, fetch success or fetch error
-export const FETCH_CITIES_PENDING = "FETCH_CITIES_PENDING";
+// export const FETCH_CITIES_PENDING = "FETCH_CITIES_PENDING";
 export const FETCH_CITIES_SUCCESS = "FETCH_CITIES_SUCCESS";
 export const FETCH_CITIES_ERROR = "FETCH_CITIES_ERROR";
 
-export function fetchCitiesPending() {
-  return {
-    type: FETCH_CITIES_PENDING
-  };
-}
+// export function fetchCitiesPending() {
+//   return {
+//     type: FETCH_CITIES_PENDING
+//   };
+// }
 
 export function fetchCitiesSuccess(cities) {
   return {
@@ -28,7 +28,7 @@ export function fetchCitiesError(error) {
 export function fetchCities() {
   return dispatch => {
     // dispatch  pending action.
-    dispatch(fetchCitiesPending());
+    // dispatch(fetchCitiesPending());
     fetch("/cities/all")
       .then(res => {
         if (res.ok) {

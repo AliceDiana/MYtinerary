@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux"; // connect component to  redux store.
 import { fetchCities } from "../store/actions/cityAction";
-import LoadingSpinner from "./UI/LoadingSpinner";
 import CityCard from "../components/UI/CityCard";
 import { Form, FormControl } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
