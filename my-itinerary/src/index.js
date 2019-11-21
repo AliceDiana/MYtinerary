@@ -11,6 +11,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 
+//create store inside constant store
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
@@ -19,7 +20,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>, //the provider allows to inject the store into the react components. The attribute activates the connection with our react application
   document.getElementById("root")
 );
 

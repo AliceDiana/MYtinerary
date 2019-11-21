@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 const CityCard = props => (
-  <Link to={"/" + props.city._id}>
+  <Link to={"/itinerary/" + props.city._id}>
     <Card className="border-0">
       <Card.Img
         src={props.city.img}

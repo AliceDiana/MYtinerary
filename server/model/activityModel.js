@@ -4,15 +4,18 @@ const activitySchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  img: {
+  title: {
+    type: String
+  },
+  image1: {
     type: String,
     required: true
   },
-  img2: {
+  image2: {
     type: String,
     required: true
   },
-  img3: {
+  image3: {
     type: String,
     required: true
   }

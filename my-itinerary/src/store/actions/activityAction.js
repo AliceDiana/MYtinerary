@@ -4,7 +4,7 @@ export const FETCH_ACTIVITY_ERROR = "FETCH_ACTIVITY_ERROR";
 export function fetchActivitySuccess(activities) {
   return {
     type: FETCH_ACTIVITY_SUCCESS,
-    itineraries: activities
+    activities: activities
   };
 }
 
@@ -17,7 +17,7 @@ export function fetchActivityError(error) {
 
 export function fetchActivities(itinerary_id) {
   return dispatch => {
-    // dispatch  pending action.
+    // dispatch  pending action .
     fetch("/activities/" + itinerary_id)
       .then(res => {
         if (res.ok) {

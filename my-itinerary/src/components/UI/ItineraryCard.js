@@ -4,8 +4,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { Container, Row, Col } from "react-bootstrap";
 import Figure from "react-bootstrap/Figure";
-
-import ActivitiesSlider from "../UI/ActivitiesSlider";
+import Toggle from "../UI/Toggle";
 
 const ItineraryCard = props => (
   <React.Fragment>
@@ -59,7 +58,7 @@ const ItineraryCard = props => (
               </Row>
               <Row>
                 <Col>
-                  <ActivitiesSlider />
+                  <Toggle itinerary_id={props.itinerary._id} />
                 </Col>
               </Row>
             </Card.Body>
