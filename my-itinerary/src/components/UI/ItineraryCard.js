@@ -2,23 +2,14 @@
 
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-bootstrap";
 import Figure from "react-bootstrap/Figure";
+
+import ActivitiesSlider from "../UI/ActivitiesSlider";
 
 const ItineraryCard = props => (
   <React.Fragment>
     <Container>
-      <Row>
-        <Col xs={{ span: 12 }}>
-          <Image className="ItineraryBannerPic" src={props.itinerary.imgCity} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={{ span: 12 }}>
-          <h4 className="ItineraryPageTxt"> Available MYtineraries:</h4>
-        </Col>
-      </Row>
       <Row>
         <Col xs={{ span: 12 }}>
           <Card className="itineraryCard">
@@ -64,6 +55,11 @@ const ItineraryCard = props => (
                   <Card.Text className="hashTags">
                     {props.itinerary.hashtags}
                   </Card.Text>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <ActivitiesSlider />
                 </Col>
               </Row>
             </Card.Body>

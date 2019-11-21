@@ -32,6 +32,15 @@ class ItineraryList extends React.Component {
       <React.Fragment>
         <Container>
           <Row>
+            <Col xs={{ span: 12, offset: 0 }}></Col>
+          </Row>
+          <Row>
+            <Col xs={{ span: 12, offset: 0 }}>
+              <h5>Available MYtineraries:</h5>
+            </Col>
+          </Row>
+
+          <Row>
             <Col xs={{ span: 12, offset: 0 }}>
               {itineraries.map(itinerary => (
                 <div key={itinerary._id}>

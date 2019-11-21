@@ -170,6 +170,21 @@ li {
 }
 
 .CheckAnotherCity {
-  margin-top: 134px;
+  margin-top: 66px;
   margin-left: -20px;
+}
+
+.ActivityPic {
+  width: 94%;
+}
+
+.slick-arrow.slick-prev {
+  left: -4% !important;
+  z-index: 1;
+  color: grey;
+}
+.slick-arrow.slick-next {
+  right: 1% !important;
+  z-index: 1;
+  color: black;
 }
