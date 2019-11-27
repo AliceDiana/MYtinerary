@@ -3,6 +3,7 @@
 import React from "react";
 import { connect } from "react-redux"; // connect component to  redux store.
 import ItineraryCard from "../components/UI/ItineraryCard";
+
 import { fetchItineraries } from "../store/actions/itineraryAction";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -32,7 +33,9 @@ class ItineraryList extends React.Component {
       <React.Fragment>
         <Container>
           <Row>
-            <Col xs={{ span: 12, offset: 0 }}></Col>
+            <Col xs={{ span: 12, offset: 0 }}>
+              {/* <ItineraryBanner img={this.state.cities.img} /> */}
+            </Col>
           </Row>
           <Row>
             <Col xs={{ span: 12, offset: 0 }}>

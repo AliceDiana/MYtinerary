@@ -22,9 +22,11 @@ const ActivityCarousel = props => {
       {props.activity.map(activity => {
         return (
           <div>
-            <img className="ActivityPic" src={activity.image1} />
-            <img className="ActivityPic" src={activity.image2} />
-            <img className="ActivityPic" src={activity.image3} />
+            <Slider {...settings}>
+              <img className="ActivityPic" src={activity.image1} alt="city" />
+              <img className="ActivityPic" src={activity.image2} alt="city" />
+              <img className="ActivityPic" src={activity.image3} alt="city" />
+            </Slider>
           </div>
         );
       })}

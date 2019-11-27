@@ -4,6 +4,7 @@
 /my-itinerary/node_modules
 /server/node_modules
 keys.js
+default.json
 /my-itinerary/.pnp
 .pnp.js
 

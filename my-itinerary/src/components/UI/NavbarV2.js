@@ -30,12 +30,7 @@ const NavBarV2 = props => (
             aria-labelledby="navbarDropdownMenuLink-55"
           >
             <li>
-              <Link to="/logging" className="dropdown-item">
-                Log In
-              </Link>
-            </li>
-            <li>
-              <Link to="/creating" className="dropdown-item">
+              <Link to="/users" className="dropdown-item">
                 Create Account
               </Link>
             </li>
@@ -49,6 +44,8 @@ const NavBarV2 = props => (
       <Nav>
         <Link to="/"> Home </Link>
         <Link to="/cities"> Cities</Link>
+        <Link to="/users"> Create Account</Link>
+        <Link to="/auth"> Log In</Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

@@ -19,11 +19,9 @@ router.post("/", (req, res) => {
 
   //check existing user
   User.findOne({ email: email }).then(user => {
-    if (!User) return res.status(400).json({ msg: "User does not exists" });
-
+    if (!user) return res.status(400).json({ msg: "User does not exists" });
     // Validate password
     bcrypt.compare(password, user.password).then(isMatch => {
-      console.log(password);
       if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
       jwt.sign(
         { id: user.id },
@@ -35,9 +33,11 @@ router.post("/", (req, res) => {
           if (err) throw err;
           res.json({
             token,
-            id: user.id,
-            name: user.name,
-            email: user.email
+            user: {
+              id: user.id,
+              name: user.name,
+              email: user.email
+            }
           });
         }
       );
