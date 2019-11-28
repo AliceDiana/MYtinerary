@@ -4,6 +4,7 @@ const User = require("../model/userModel");
 const bcrypt = require("bcryptjs");
 const config = require("config");
 const jwt = require("jsonwebtoken");
+const auth = require("./middleware/auth");
 
 //@route POST /auth
 //@desc  Authorizing user
@@ -43,6 +44,16 @@ router.post("/", (req, res) => {
       );
     });
   });
+});
+
+//@route GET /auth/user
+//@desc  Authorizing user (Validate user with the token)
+//@access  Private
+
+router.get("/user", auth, (req, res) => {
+  User.findById(req.user.id)
+    .select("-password")
+    .then(user => res.json(user));
 });
 
 module.exports = router;

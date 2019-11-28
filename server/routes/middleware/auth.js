@@ -2,8 +2,9 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 
 //middleware function to fetch token
-function mw_auth(req, res, next) {
-  const token = req.header("x-mw_auth-token");
+function auth(req, res, next) {
+  const token = req.header("x-auth-token");
+  console.log(token);
 
   // Check for token
   if (!token)
@@ -20,4 +21,4 @@ function mw_auth(req, res, next) {
   }
 }
 
-module.exports = mw_auth;
+module.exports = auth;
