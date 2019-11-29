@@ -9,12 +9,14 @@ import { clearErrors } from "../../../store/actions/errorAction";
 import Alert from "react-bootstrap/Alert";
 import Modal from "react-bootstrap/Modal";
 
+// import ImageUploader from "react-images-upload";
 class RegisterForm extends Component {
   state = {
     modal: false,
     name: "",
     email: "",
     password: "",
+    avatar: [],
     msg: null
   };
 
@@ -42,17 +44,25 @@ class RegisterForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  uploadPicture = e => {
+    console.log(e.target.files[0]);
+    //save the uploaded pic in the state
+    this.setState({
+      avatar: e.target.files[0]
+    });
+  };
+
   onSubmit = e => {
     e.preventDefault();
 
-    const { name, email, password } = this.state;
+    // const { name, email, password, avatar } = this.state;
 
     //create a user object
-    const newUser = {
-      name,
-      email,
-      password
-    };
+    const newUser = new FormData();
+    newUser.append("name", this.state.name);
+    newUser.append("email", this.state.email);
+    newUser.append("password", this.state.password);
+    newUser.append("avatar", this.state.avatar);
     // Attempt to register
     this.props.register(newUser);
   };
@@ -100,6 +110,18 @@ class RegisterForm extends Component {
                       name="password"
                       placeholder="Password"
                       onChange={this.onChange}
+                    />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <input
+                      accept="image/*"
+                      className="input"
+                      id="raised-button-file"
+                      type="file"
+                      name="file"
+                      onChange={this.uploadPicture}
                     />
                   </Col>
                 </Row>

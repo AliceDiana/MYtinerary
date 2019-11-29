@@ -3,6 +3,16 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const config = require("config");
 const jwt = require("jsonwebtoken");
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, "./uploads/");
+  },
+  filename: function(req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  }
+});
+const upload = multer({ storage: storage }); //Store all images in this folder
 
 // User Model
 const User = require("../model/userModel");
@@ -11,12 +21,13 @@ const User = require("../model/userModel");
 //@desc  Register new user
 //@access Public
 
-router.post("/", (req, res) => {
+router.post("/", upload.single("avatar"), (req, res) => {
   const { name, email, password } = req.body;
+  console.log(req.file);
 
   // Validation
   //if user does not send correct fields, will receive err message
-  if (!name || !email || !password) {
+  if (!name || !email || !password || !req.file) {
     return res.status(400).json({ msg: "please enter all fields" });
   }
 
@@ -27,9 +38,10 @@ router.post("/", (req, res) => {
 
   //If user does not exist, we create a new user
   const newUser = new User({
-    name,
-    email,
-    password
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+    avatar: req.file.path
   });
 
   //Create salt & hash
@@ -53,7 +65,8 @@ router.post("/", (req, res) => {
               user: {
                 id: newUser.id,
                 name: newUser.name,
-                email: newUser.email
+                email: newUser.email,
+                avatar: newUser.avatar
               }
             });
           }

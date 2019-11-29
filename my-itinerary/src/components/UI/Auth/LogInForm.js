@@ -91,6 +91,7 @@ class LogInForm extends Component {
                     />
                   </Col>
                 </Row>
+
                 <Row>
                   <Col>
                     <Button variant="primary" type="submit">

@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import LogOut from "./Auth/LogOut";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -24,14 +24,23 @@ class NavBarV2 extends Component {
             <strong>{user ? `Welcome ${user.name}` : ""}</strong>
           </span>
         </NavItem>
+        <NavItem>
+          <span>
+            {user ? (
+              <img src={user.avatar} alt="avatar" />
+            ) : (
+              <FontAwesomeIcon icon={faUser} />
+            )}
+          </span>
+        </NavItem>
         <LogOut />
       </Fragment>
     );
 
     const guestLinks = (
       <Fragment>
-        <Link to="/users"> Register</Link>
-        <Link to="/auth"> Log In</Link>
+        <NavLink to="/users"> Register</NavLink>
+        <NavLink to="/auth"> Log In</NavLink>
       </Fragment>
     );
     return (
@@ -43,12 +52,15 @@ class NavBarV2 extends Component {
           variant="dark"
           className="navHeaderV2"
         >
+          {/* <NavItem>
+            <FontAwesomeIcon icon={faUser} />{" "}
+          </NavItem> */}
           <Navbar.Toggle />
           <Navbar.Collapse>
             <Nav>
               {isAuthenticated ? authLinks : guestLinks}
-              <Link to="/"> Home </Link>
-              <Link to="/cities"> Cities</Link>
+              <NavLink to="/"> Home </NavLink>
+              <NavLink to="/cities"> Cities</NavLink>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

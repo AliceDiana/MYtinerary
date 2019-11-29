@@ -36,18 +36,18 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 // REGISTER A USER
-export const register = ({ name, email, password }) => dispatch => {
+export const register = user => dispatch => {
   // Headers
   const config = {
     headers: {
       "Content-Type": "application/json"
     }
   };
-  // Request body
-  const body = JSON.stringify({ name, email, password });
+  // // Request body
+  // const body = JSON.stringify({ name, email, password });
 
   axios
-    .post("/users", body, config)
+    .post("/users", user, config)
     .then(res => {
       dispatch(clearErrors());
       return dispatch({
