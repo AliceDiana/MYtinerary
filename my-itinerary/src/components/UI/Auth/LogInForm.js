@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { login } from "../../../store/actions/authAction";
 import { clearErrors } from "../../../store/actions/errorAction";
@@ -11,7 +12,6 @@ import Modal from "react-bootstrap/Modal";
 
 class LogInForm extends Component {
   state = {
-    modal: false,
     email: "",
     password: "",
     msg: null
@@ -25,7 +25,7 @@ class LogInForm extends Component {
   };
 
   componentDidUpdate(previousProps) {
-    const { error } = this.props;
+    const { error, isAuthenticated } = this.props;
     if (error !== previousProps.error) {
       //Check for register error
       if (error.id === "LOGIN_FAIL") {
@@ -33,6 +33,9 @@ class LogInForm extends Component {
       } else {
         this.setState({ msg: null });
       }
+    }
+    if (isAuthenticated === true) {
+      return <Redirect to="/" />;
     }
   }
 
@@ -58,7 +61,7 @@ class LogInForm extends Component {
       <React.Fragment>
         <Container id="containerLandingV2">
           <Modal.Dialog>
-            <Modal.Header closeButton>
+            <Modal.Header>
               <Modal.Title> Login </Modal.Title>
             </Modal.Header>
             <Modal.Body>
