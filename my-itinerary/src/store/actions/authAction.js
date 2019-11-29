@@ -1,5 +1,5 @@
 import axios from "axios";
-import { returnErrors } from "./errorAction";
+import { returnErrors, clearErrors } from "./errorAction";
 
 import {
   USER_LOADED,
@@ -12,7 +12,7 @@ import {
   REGISTER_FAIL
 } from "./types";
 
-//CHECK TOCKEN AND LOAD USER
+//CHECK TOKEN AND LOAD USER
 
 export const loadUser = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING });
@@ -35,7 +35,7 @@ export const loadUser = () => (dispatch, getState) => {
     });
 };
 
-// Register User
+// REGISTER A USER
 export const register = ({ name, email, password }) => dispatch => {
   // Headers
   const config = {
@@ -43,18 +43,18 @@ export const register = ({ name, email, password }) => dispatch => {
       "Content-Type": "application/json"
     }
   };
-
   // Request body
   const body = JSON.stringify({ name, email, password });
 
   axios
     .post("/users", body, config)
-    .then(res =>
-      dispatch({
+    .then(res => {
+      dispatch(clearErrors());
+      return dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data
-      })
-    )
+      });
+    })
     .catch(err => {
       dispatch(
         returnErrors(err.response.data, err.response.status, "REGISTER_FAIL")
@@ -65,7 +65,7 @@ export const register = ({ name, email, password }) => dispatch => {
     });
 };
 
-// Login User
+// LOGIN USER
 export const login = ({ email, password }) => dispatch => {
   // Headers
   const config = {
@@ -79,12 +79,13 @@ export const login = ({ email, password }) => dispatch => {
 
   axios
     .post("/auth", body, config)
-    .then(res =>
-      dispatch({
+    .then(res => {
+      dispatch(clearErrors());
+      return dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data
-      })
-    )
+      });
+    })
     .catch(err => {
       dispatch(
         returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
@@ -95,14 +96,14 @@ export const login = ({ email, password }) => dispatch => {
     });
 };
 
-// Logout User
+// LOGOUT USER
 export const logout = () => {
   return {
     type: LOGOUT_SUCCESS
   };
 };
 
-//Setup config /headers and token
+//SETUP CONFIG, HEADERS AND TOKEN
 
 export const tokenConfig = getState => {
   // Get token from localStorage
@@ -117,7 +118,7 @@ export const tokenConfig = getState => {
 
   // If token, add to headers
   if (token) {
-    config.headers["x-aw_auth-token"] = token;
+    config.headers["x-auth-token"] = token;
   }
   return config;
 };

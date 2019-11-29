@@ -1,50 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { Navbar, Nav } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const NavBarV2 = props => (
   <Navbar
     fixed="top"
-    collapseOnSelect
     expand="xs"
     bg="dark"
     variant="dark"
     className="navHeaderV2"
   >
-    <Nav>
-      <ul className="navbar-nav ml-auto nav-flex-icons">
-        <li className="nav-item avatar dropdown">
-          <a
-            href="/#"
-            className="nav-link dropdown-toggle"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <FontAwesomeIcon icon={faUser} />
-          </a>
-          <ul
-            className="dropdown-menu dropdown-secondary"
-            aria-labelledby="navbarDropdownMenuLink-55"
-          >
-            <li>
-              <Link to="/users" className="dropdown-item">
-                Create Account
-              </Link>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </Nav>
-
     <Navbar.Toggle />
     <Navbar.Collapse>
       <Nav>
         <Link to="/"> Home </Link>
         <Link to="/cities"> Cities</Link>
-        <Link to="/users"> Create Account</Link>
+        <Link to="/users"> Register</Link>
         <Link to="/auth"> Log In</Link>
       </Nav>
     </Navbar.Collapse>

@@ -114,6 +114,106 @@ li {
 .imgCarousel {
   width: 100%;
 }
+/* Style Navbar */
+
+.Toolbar {
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: darkslategrey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 90;
+}
+
+.Toolbar nav {
+  height: 100%;
+}
+
+.NavigationItems {
+  margin: 0;
+  padding: 8;
+  list-style: none;
+  display: flex;
+  height: 100%;
+}
+
+.NavigationItem {
+  margin: 10px 0;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+}
+
+.NavigationItem a {
+  color: white;
+  width: 100%;
+  height: 100px;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.NavigationItem a:hover,
+.NavigationItem a:active {
+  background-color: grey;
+}
+
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__line {
+  width: 30px;
+  height: 2px;
+  background: white;
+}
+
+#SideDrawer {
+  position: fixed;
+  width: 280px;
+  max-width: 70%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border box;
+  background-color: black;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  padding: 32px 16px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+@media (min-width: 500px) {
+  .SideDrawer {
+    display: none;
+  }
+}
+
+.Open {
+  transform: translateX(0);
+}
+.Close {
+  transform: translateX(-100%);
+}
 
 /*************************** Style City Page  *******************************/
 

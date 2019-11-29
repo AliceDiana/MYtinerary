@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { connect } from "react-redux";
 // import LandingPage from "./Pages/Landing";
 import LandingPageV2 from "./Pages/LandingV2";
 import CitiesPage from "./Pages/Cities";
 import ItinerariesPage from "./Pages/Itineraries";
 
 import CreateUserPage from "./Pages/CreateUser";
-// import { loadUser } from "./store/actions/authAction";
+import { loadUser } from "./store/actions/authAction";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LogInPage from "./Pages/LogInPage";
 
 class App extends Component {
-  // componentDidMount() {
-  //   store.dispatch(loadUser());
-  // }
+  componentDidMount() {
+    this.props.loadUser();
+  }
   render() {
     return (
       <BrowserRouter>
@@ -32,4 +32,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { loadUser })(App);

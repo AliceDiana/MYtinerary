@@ -21,5 +21,3 @@ export class Logout extends Component {
 }
 
 export default connect(null, { logout })(Logout);
-
-//devo inserire il logout nella navbar

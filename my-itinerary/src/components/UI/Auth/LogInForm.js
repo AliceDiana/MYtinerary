@@ -25,7 +25,7 @@ class LogInForm extends Component {
   };
 
   componentDidUpdate(previousProps) {
-    const { error, isAuthenticated } = this.props;
+    const { error } = this.props;
     if (error !== previousProps.error) {
       //Check for register error
       if (error.id === "LOGIN_FAIL") {
@@ -34,21 +34,7 @@ class LogInForm extends Component {
         this.setState({ msg: null });
       }
     }
-
-    //If authenticated, close modal
-    if (this.state.modal) {
-      if (isAuthenticated) {
-        this.toggle();
-      }
-    }
   }
-  toggle = () => {
-    // Clear errors
-    this.props.clearErrors();
-    this.setState({
-      modal: !this.state.modal
-    });
-  };
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -71,9 +57,9 @@ class LogInForm extends Component {
     return (
       <React.Fragment>
         <Container id="containerLandingV2">
-          <Modal.Dialog isOpen={this.state.modal} toggle={this.toggle}>
+          <Modal.Dialog>
             <Modal.Header closeButton>
-              <Modal.Title toggle={this.toggle}> Login </Modal.Title>
+              <Modal.Title> Login </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               {this.state.msg ? (
@@ -86,7 +72,6 @@ class LogInForm extends Component {
                     <Form.Control
                       type="email"
                       name="email"
-                      id="email"
                       placeholder="Enter email"
                       onChange={this.onChange}
                     />
@@ -98,7 +83,6 @@ class LogInForm extends Component {
                     <Form.Control
                       type="password"
                       name="password"
-                      id="password"
                       placeholder="Password"
                       onChange={this.onChange}
                     />
