@@ -8,9 +8,9 @@ import Card from "react-bootstrap/Card";
 const settings = {
   dots: true,
   infinite: true,
-  speed: 500,
+  speed: 200,
   slidesToShow: 1,
-  slidesToScroll: 3,
+  slidesToScroll: 1,
   adaptiveHeight: true,
   arrows: true
 };

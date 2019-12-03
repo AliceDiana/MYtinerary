@@ -1,8 +1,5 @@
-//Itineraries container
-
 import React from "react";
 import { connect } from "react-redux"; // connect component to  redux store.
-
 import { Container } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import Toggle from "./UI/Toggle";
@@ -57,7 +54,6 @@ class ItineraryList extends React.Component {
                 <React.Fragment>
                   <Container className="containerFlexbox">
                     <div className="itineraryHeader">
-                      this.
                       <Image
                         className="user"
                         roundedCircle

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Logo from "../components/UI/Logo";
 import NavBarV2 from "../components/UI/NavbarV2";
-import Carousel from "../components/UI/Carousel";
+import CarouselSlider from "../components/UI/CarouselSlider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 const LandingPageV2 = props => (
@@ -33,7 +33,7 @@ const LandingPageV2 = props => (
       <Row>
         <Col xs={{ span: 12 }}>
           <div>
-            <Carousel />
+            <CarouselSlider />
           </div>
         </Col>
       </Row>
