@@ -2,14 +2,14 @@ import React, { Component, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import LogOut from "./Auth/LogOut";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Row, Col } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 
 class NavBarV2 extends Component {
-  // state = isOpen.false;
-
   static propTypes = {
     auth: PropTypes.object.isRequired
   };
@@ -19,20 +19,6 @@ class NavBarV2 extends Component {
 
     const authLinks = (
       <Fragment>
-        <NavItem>
-          <span>
-            <strong>{user ? `Welcome ${user.name}` : ""}</strong>
-          </span>
-        </NavItem>
-        <NavItem>
-          <span>
-            {user ? (
-              <img src={user.avatar} alt="avatar" />
-            ) : (
-              <FontAwesomeIcon icon={faUser} />
-            )}
-          </span>
-        </NavItem>
         <LogOut />
       </Fragment>
     );
@@ -46,23 +32,45 @@ class NavBarV2 extends Component {
     return (
       <React.Fragment>
         <Navbar
-          fixed="top"
-          expand="xs"
+          collapseOnSelect
+          className="sticky-nav"
+          expand="lg"
           bg="dark"
           variant="dark"
-          className="navHeaderV2"
         >
-          {/* <NavItem>
-            <FontAwesomeIcon icon={faUser} />{" "}
-          </NavItem> */}
-          <Navbar.Toggle />
-          <Navbar.Collapse>
-            <Nav>
-              {isAuthenticated ? authLinks : guestLinks}
-              <NavLink to="/"> Home </NavLink>
-              <NavLink to="/cities"> Cities</NavLink>
-            </Nav>
-          </Navbar.Collapse>
+          <Row>
+            <Col xs={{ span: 2 }}>
+              <NavItem>
+                {user ? (
+                  <Image
+                    className="avatar"
+                    src={user.avatar}
+                    alt="avatar"
+                    roundedCircle
+                  />
+                ) : (
+                  <FontAwesomeIcon className="iAvatar " icon={faUser} />
+                )}
+              </NavItem>
+            </Col>
+            <Col xs={{ span: 5 }}>
+              <NavItem>
+                <span>
+                  <strong>{user ? `Welcome ${user.name}` : ""}</strong>
+                </span>
+              </NavItem>
+            </Col>
+
+            <Col xs={{ span: 5 }}>
+              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              <Navbar.Collapse>
+                <Nav>
+                  {isAuthenticated ? authLinks : guestLinks}
+                  <NavLink to="/cities"> Cities</NavLink>
+                </Nav>
+              </Navbar.Collapse>
+            </Col>
+          </Row>
         </Navbar>
       </React.Fragment>
     );

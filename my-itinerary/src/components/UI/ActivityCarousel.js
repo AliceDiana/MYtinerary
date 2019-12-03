@@ -2,12 +2,15 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Card from "react-bootstrap/Card";
+// import Carousel from "react-bootstrap/Carousel";
+
 const settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
+  slidesToShow: 1,
+  slidesToScroll: 3,
   adaptiveHeight: true,
   arrows: true
 };
@@ -18,18 +21,29 @@ const ActivityCarousel = props => {
   return (
     <React.Fragment>
       <h6>Activities</h6>
+      <Slider {...settings}>
+        {props.activity.map(activity => {
+          return (
+            <div>
+              {/* <Carousel>
+              <Carousel.Item>
+                <img className="d-block w-100" src={activity.image} />
+                <Carousel.Caption>
+                  <h3>{activity.title}</h3>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel> */}
 
-      {props.activity.map(activity => {
-        return (
-          <div>
-            <Slider {...settings}>
-              <img className="ActivityPic" src={activity.image1} alt="city" />
-              <img className="ActivityPic" src={activity.image2} alt="city" />
-              <img className="ActivityPic" src={activity.image3} alt="city" />
-            </Slider>
-          </div>
-        );
-      })}
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src={activity.image} />
+                <Card.Body>
+                  <Card.Title>{activity.title} </Card.Title>
+                </Card.Body>
+              </Card>
+            </div>
+          );
+        })}
+      </Slider>
     </React.Fragment>
   );
 };

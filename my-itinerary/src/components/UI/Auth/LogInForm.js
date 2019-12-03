@@ -25,7 +25,7 @@ class LogInForm extends Component {
   };
 
   componentDidUpdate(previousProps) {
-    const { error, isAuthenticated } = this.props;
+    const { error } = this.props;
     if (error !== previousProps.error) {
       //Check for register error
       if (error.id === "LOGIN_FAIL") {
@@ -33,9 +33,6 @@ class LogInForm extends Component {
       } else {
         this.setState({ msg: null });
       }
-    }
-    if (isAuthenticated === true) {
-      return <Redirect to="/" />;
     }
   }
 
@@ -57,54 +54,59 @@ class LogInForm extends Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <Container id="containerLandingV2">
-          <Modal.Dialog>
-            <Modal.Header>
-              <Modal.Title> Login </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              {this.state.msg ? (
-                <Alert variant="danger">{this.state.msg}</Alert>
-              ) : null}
-              <Form onSubmit={this.onSubmit}>
-                <Row>
-                  <Col>
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control
-                      type="email"
-                      name="email"
-                      placeholder="Enter email"
-                      onChange={this.onChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      onChange={this.onChange}
-                    />
-                  </Col>
-                </Row>
+    const { isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <React.Fragment>
+          <Container id="containerLandingV2">
+            <Modal.Dialog>
+              <Modal.Header>
+                <Modal.Title> Login </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                {this.state.msg ? (
+                  <Alert variant="danger">{this.state.msg}</Alert>
+                ) : null}
+                <Form onSubmit={this.onSubmit}>
+                  <Row>
+                    <Col>
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        name="email"
+                        placeholder="Enter email"
+                        onChange={this.onChange}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={this.onChange}
+                      />
+                    </Col>
+                  </Row>
 
-                <Row>
-                  <Col>
-                    <Button variant="primary" type="submit">
-                      Login
-                    </Button>
-                  </Col>
-                </Row>
-              </Form>
-            </Modal.Body>
-          </Modal.Dialog>
-        </Container>
-      </React.Fragment>
-    );
+                  <Row>
+                    <Col>
+                      <Button variant="primary" type="submit">
+                        Login
+                      </Button>
+                    </Col>
+                  </Row>
+                </Form>
+              </Modal.Body>
+            </Modal.Dialog>
+          </Container>
+        </React.Fragment>
+      );
+    }
   }
 }
 const mapStateToProps = state => ({

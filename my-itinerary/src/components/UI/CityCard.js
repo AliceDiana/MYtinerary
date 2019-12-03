@@ -4,17 +4,14 @@ import { Link } from "react-router-dom";
 
 const CityCard = props => (
   <Link to={"/itinerary/" + props.city._id}>
-    <Card className="border-0">
-      <Card.Img
-        src={props.city.img}
-        className="bg-dark text-white cityCard rounded mb-0  border border-dark"
-        alt="Card image"
-      />
-
-      <Card.ImgOverlay>
-        <Card.Title className="text-white"> {props.city.name}</Card.Title>
-        <Card.Text className="text-white"> {props.city.country}</Card.Text>
-      </Card.ImgOverlay>
+    <Card className="cityCard">
+      <Card.Img variant="top" src={props.city.img} />
+      <Card.Body>
+        <Card.Title className="cardTitle">
+          {" "}
+          {props.city.name},{props.city.country}{" "}
+        </Card.Title>
+      </Card.Body>
     </Card>
   </Link>
 );

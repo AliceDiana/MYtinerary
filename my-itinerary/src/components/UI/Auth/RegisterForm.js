@@ -9,7 +9,6 @@ import { clearErrors } from "../../../store/actions/errorAction";
 import Alert from "react-bootstrap/Alert";
 import Modal from "react-bootstrap/Modal";
 
-// import ImageUploader from "react-images-upload";
 class RegisterForm extends Component {
   state = {
     modal: false,
@@ -72,7 +71,7 @@ class RegisterForm extends Component {
       <React.Fragment>
         <Container id="containerLandingV2">
           <Modal.Dialog>
-            <Modal.Header closeButton>
+            <Modal.Header>
               <Modal.Title> Register </Modal.Title>
             </Modal.Header>
             <Modal.Body>

@@ -2,16 +2,18 @@
 
 import React from "react";
 import { connect } from "react-redux"; // connect component to  redux store.
-import ItineraryCard from "../components/UI/ItineraryCard";
 
+import { Container } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
+import Toggle from "./UI/Toggle";
 import { fetchItineraries } from "../store/actions/itineraryAction";
-import { Container, Row, Col } from "react-bootstrap";
 
 class ItineraryList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      itineraries: []
+      itineraries: [],
+      selectedID: ""
     };
   }
 
@@ -27,31 +29,70 @@ class ItineraryList extends React.Component {
     });
   }
 
+  changeSelectedID = itinerary_id => {
+    console.log(itinerary_id);
+
+    if (itinerary_id === this.state.selectedID) {
+      this.setState({
+        selectedID: ""
+      });
+    } else {
+      this.setState({
+        selectedID: itinerary_id
+      });
+    }
+  };
+
   render() {
     let itineraries = this.state.itineraries;
     return (
       <React.Fragment>
         <Container>
-          <Row>
-            <Col xs={{ span: 12, offset: 0 }}>
-              {/* <ItineraryBanner img={this.state.cities.img} /> */}
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={{ span: 12, offset: 0 }}>
-              <h5>Available MYtineraries:</h5>
-            </Col>
-          </Row>
+          <div>
+            <h5>Available MYtineraries:</h5>
+          </div>
+          <div>
+            {itineraries.map(itinerary => (
+              <div key={itinerary._id}>
+                <React.Fragment>
+                  <Container className="containerFlexbox">
+                    <div className="itineraryHeader">
+                      this.
+                      <Image
+                        className="user"
+                        roundedCircle
+                        src={itinerary.img}
+                      />
+                      <div className="hostName">
+                        <h6>{itinerary.title}</h6>
+                        <p>{itinerary.host} </p>
+                      </div>
+                    </div>
+                    <div className="detailsBox">
+                      <p>{itinerary.rating}</p>
 
-          <Row>
-            <Col xs={{ span: 12, offset: 0 }}>
-              {itineraries.map(itinerary => (
-                <div key={itinerary._id}>
-                  <ItineraryCard itinerary={itinerary} />
-                </div>
-              ))}
-            </Col>
-          </Row>
+                      <p>{itinerary.duration}</p>
+
+                      <p>{itinerary.price}</p>
+
+                      <p>{itinerary.hashtags}</p>
+                    </div>
+                    <div className="activityToggle">
+                      {this.state.selectedID === itinerary._id ? (
+                        <Toggle itinerary_id={itinerary._id} />
+                      ) : null}
+                      <button
+                        className="button"
+                        onClick={() => this.changeSelectedID(itinerary._id)}
+                      >
+                        View All
+                      </button>
+                    </div>
+                  </Container>
+                </React.Fragment>
+              </div>
+            ))}
+          </div>
         </Container>
       </React.Fragment>
     );

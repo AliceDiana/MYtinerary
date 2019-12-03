@@ -10,7 +10,6 @@ const CreateUserPage = props => (
     <Container id="containerLandingV2">
       <Row className="cityDisplayContainer">
         <Col xs={{ span: 12, offset: 0 }}>
-          <h2>Register here</h2>
           <RegisterForm />
         </Col>
       </Row>

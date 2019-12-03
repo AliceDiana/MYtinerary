@@ -5,7 +5,6 @@ import { fetchActivities } from "../../store/actions/activityAction";
 
 class Toggle extends Component {
   state = {
-    display: true,
     width: 300
   };
 
@@ -18,21 +17,9 @@ class Toggle extends Component {
 
     return (
       <div>
-        <button
-          className="button"
-          onClick={() =>
-            this.setState({
-              display: !this.state.display
-            })
-          }
-        >
-          View All
-        </button>
-
         <div
           style={{
-            width: this.state.width + "px",
-            display: this.state.display ? "none" : "block"
+            width: this.state.width + "px"
           }}
         >
           <ActivityCarousel activity={this.props.activities} />

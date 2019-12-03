@@ -1,33 +1,22 @@
-body {
-  margin: 0;
-
-  padding: 0;
-  font-family: "Open Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: white;
-}
-
 /*************************** Style Landing Page 1 *******************************/
 
 /* Style Body */
-
+/* 
 #containerLandingV1 {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
+} */
 
-.logoHeader {
+/* .logoHeader {
   margin-top: 5px;
-}
-
+} */
+/* 
 .accessLinks {
   margin-bottom: 100px;
 }
-
 .arrowImage {
   margin-left: 34px;
   width: 36%;
@@ -38,8 +27,8 @@ body {
   margin-top: 44px;
   font-size: 20px;
   text-align: center;
-}
-
+} */
+/* 
 .LandingSecondText {
   margin-top: 20px;
   font-size: 24px;
@@ -55,11 +44,11 @@ body {
 #accessLinks {
   margin-left: -60px;
   margin-top: 9px;
-}
+} */
 
 /* Style Footer  */
 
-.toolbar_links {
+/* .toolbar_links {
   list-style: none;
   height: 10%;
 }
@@ -71,7 +60,7 @@ body {
 .homeIcon {
   font-size: 34px;
   margin-left: 156px;
-}
+} */
 
 /*************************** Style Landing Page 2 *******************************/
 #containerLandingV2 {
@@ -80,15 +69,7 @@ body {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 69px;
-}
-
-/* Style Header */
-.navHeaderV2 a,
-li {
-  font-size: 18px;
-  color: whitesmoke;
-  font-weight: solid;
+  margin-top: 10px;
 }
 
 /* Style Body */
@@ -102,155 +83,63 @@ li {
   margin-top: 15px;
   font-size: 22px;
 }
-.arrowImageV2 img {
-  width: 100%;
-  margin-top: 17px;
-}
 
-.CarouselLanding {
+.iArrow {
+  color: darkslategrey;
+  font-size: 80px;
   margin-top: 20px;
 }
 
-.imgCarousel {
+/* Style NavBar */
+
+.avatar {
   width: 100%;
 }
-/* Style Navbar */
 
-.Toolbar {
-  height: 56px;
-  width: 100%;
-  position: fixed;
+.iAvatar {
+  font-size: 20px;
+}
+
+.sticky-nav {
+  position: sticky;
   top: 0;
-  left: 0;
-  background-color: darkslategrey;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  box-sizing: border-box;
-  z-index: 90;
+}
+.navbar-toggler {
+  margin-left: 54px;
 }
 
-.Toolbar nav {
-  height: 100%;
+.nav-item {
+  color: whitesmoke;
+  font-size: 19px;
 }
 
-.NavigationItems {
-  margin: 0;
-  padding: 8;
-  list-style: none;
-  display: flex;
-  height: 100%;
-}
+/* Style Toolbar */
 
-.NavigationItem {
-  margin: 10px 0;
-  box-sizing: border-box;
-  display: block;
-  height: 100%;
-}
-
-.NavigationItem a {
-  color: white;
-  width: 100%;
-  height: 100px;
-  text-decoration: none;
-  box-sizing: border-box;
-}
-
-.NavigationItem a:hover,
-.NavigationItem a:active {
-  background-color: grey;
-}
-
-.toggle-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 24px;
-  width: 30px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.toggle-button:focus {
-  outline: none;
-}
-
-.toggle-button__line {
-  width: 30px;
-  height: 2px;
-  background: white;
-}
-
-#SideDrawer {
-  position: fixed;
-  width: 280px;
-  max-width: 70%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  box-sizing: border box;
-  background-color: black;
-  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
-  padding: 32px 16px;
-  z-index: 200;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-out;
-}
-
-@media (min-width: 500px) {
-  .SideDrawer {
-    display: none;
-  }
-}
-
-.Open {
-  transform: translateX(0);
-}
-.Close {
-  transform: translateX(-100%);
-}
-
-/*************************** Style City Page  *******************************/
-
-.containerLandingV2 {
-  min-height: 100%;
-  position: relative;
-}
-
-.cityCard {
-  margin-top: 58px;
-  margin-bottom: -10px;
-  height: 155px;
-}
-
-.card-img {
-  height: 155px;
-}
-
-.cityDisplayContainer {
-  padding: 10px;
-  padding-bottom: 100px; /* Height of the footer */
-}
 #toolbar {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 60px; /* Height of the footer */
 }
 
-/*************************** Style Itinerary Page  *******************************/
-
-.ItineraryBannerPic {
-  margin-top: 17px;
-  margin-bottom: 15px;
-  height: 155px;
-  width: 100%;
+.iHome {
+  font-size: 30px;
+  color: darkslategrey;
+  margin-left: 160px;
 }
+
+/*************************** Style City Page  *******************************/
+
+.cityCard {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  color: black;
+  font-size: 14px;
+  text-align: center;
+}
+
+/*************************** Style Itinerary Page  *******************************/
 
 .itineraryCard {
   height: 100%;
@@ -260,8 +149,11 @@ li {
   margin-bottom: 10px;
 }
 
-.hostPicItinerary {
-  width: 100%;
+.hostPicture {
+  max-width: 230px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
 }
 
 .ratingTag,
@@ -287,4 +179,26 @@ li {
   right: 1% !important;
   z-index: 1;
   color: black;
+}
+
+.containerFlexbox {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-style: solid;
+}
+
+.user {
+  width: 20%;
+  height: auto;
+}
+.hostName {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+}
+
+.detailsBox,
+.itineraryHeader {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
 }

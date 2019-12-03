@@ -12,7 +12,6 @@ const LogInPage = props => (
     <Container id="containerLandingV2">
       <Row className="cityDisplayContainer">
         <Col xs={{ span: 12, offset: 0 }}>
-          <h2>Log In here:</h2>
           <LogInForm />
         </Col>
       </Row>
