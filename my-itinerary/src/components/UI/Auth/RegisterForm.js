@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Container, Row, Col } from "react-bootstrap";
+
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../../../store/actions/authAction";
 import { clearErrors } from "../../../store/actions/errorAction";
 import Alert from "react-bootstrap/Alert";
 import Modal from "react-bootstrap/Modal";
+import { Redirect } from "react-router-dom";
 
 class RegisterForm extends Component {
   state = {
@@ -61,16 +62,20 @@ class RegisterForm extends Component {
     newUser.append("name", this.state.name);
     newUser.append("email", this.state.email);
     newUser.append("password", this.state.password);
+
     newUser.append("avatar", this.state.avatar);
     // Attempt to register
     this.props.register(newUser);
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <Container id="containerLandingV2">
-          <Modal.Dialog>
+    const { isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <React.Fragment>
+          <Modal.Dialog id="register-form">
             <Modal.Header>
               <Modal.Title> Register </Modal.Title>
             </Modal.Header>
@@ -79,64 +84,43 @@ class RegisterForm extends Component {
                 <Alert variant="danger">{this.state.msg}</Alert>
               ) : null}
               <Form onSubmit={this.onSubmit}>
-                <Row>
-                  <Col>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                      onChange={this.onChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control
-                      type="email"
-                      name="email"
-                      placeholder="Enter email"
-                      onChange={this.onChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      onChange={this.onChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <input
-                      accept="image/*"
-                      className="input"
-                      id="raised-button-file"
-                      type="file"
-                      name="file"
-                      onChange={this.uploadPicture}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <Button variant="primary" type="submit">
-                      Sign up
-                    </Button>
-                  </Col>
-                </Row>
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  onChange={this.onChange}
+                />
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
+                  onChange={this.onChange}
+                />
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  onChange={this.onChange}
+                />
+                <input
+                  accept="image/*"
+                  id="raised-button-file"
+                  type="file"
+                  name="file"
+                  onChange={this.uploadPicture}
+                />{" "}
+                <Button id="login-button" variant="dark" type="submit">
+                  Sign up
+                </Button>
               </Form>
             </Modal.Body>
           </Modal.Dialog>
-        </Container>
-      </React.Fragment>
-    );
+        </React.Fragment>
+      );
+    }
   }
 }
 const mapStateToProps = state => ({
@@ -147,5 +131,3 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, { register, clearErrors })(
   RegisterForm
 );
-
-// se utente inserito non ho messaggio di avventuo successo, l errore non si nasconde

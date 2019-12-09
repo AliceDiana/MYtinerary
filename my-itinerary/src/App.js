@@ -6,7 +6,7 @@ import LandingPageV2 from "./Pages/LandingV2";
 import CitiesPage from "./Pages/Cities";
 import ItinerariesPage from "./Pages/Itineraries";
 
-import CreateUserPage from "./Pages/CreateUser";
+import RegisterPage from "./Pages/RegisterPage";
 import { loadUser } from "./store/actions/authAction";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -25,7 +25,7 @@ class App extends Component {
           <Route path="/cities" component={CitiesPage} />
           <Route path="/itinerary/:city_id" component={ItinerariesPage} />
           <Route path="/auth" component={LogInPage} />
-          <Route path="/users" component={CreateUserPage} />
+          <Route path="/users" component={RegisterPage} />
         </Switch>
       </BrowserRouter>
     );

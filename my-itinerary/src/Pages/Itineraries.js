@@ -10,13 +10,16 @@ import { Link } from "react-router-dom";
 const ItinerariesPage = props => (
   <React.Fragment>
     <NavBarV2 />
-
-    <ItineraryList cityId={props.match.params.city_id} />
-
-    <Link to="/cities">
-      <h6 className="CheckAnotherCity">Check another city</h6>
-    </Link>
-
+    <div className="container">
+      <div>
+        <ItineraryList cityId={props.match.params.city_id} />
+      </div>
+      <div>
+        <Link to="/cities">
+          <h6 className="another-city-link">Check another city</h6>
+        </Link>
+      </div>
+    </div>
     <Toolbar />
   </React.Fragment>
 );

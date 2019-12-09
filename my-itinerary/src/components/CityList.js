@@ -3,7 +3,6 @@ import { connect } from "react-redux"; // connect component to  redux store.
 import { fetchCities } from "../store/actions/cityAction";
 import CityCard from "../components/UI/CityCard";
 import { Form, FormControl } from "react-bootstrap";
-import { Container, Row, Col } from "react-bootstrap";
 
 class CityList extends React.Component {
   constructor(props) {
@@ -38,30 +37,25 @@ class CityList extends React.Component {
 
     return (
       <React.Fragment>
-        <Container>
-          <Row>
-            <Col xs={{ span: 12, offset: 0 }}>
-              <Form inline>
-                <h5>Filter our current cities:</h5>
-                <FormControl
-                  type="text"
-                  placeholder="Search"
-                  className=" mr-sm-2"
-                  onChange={this.filterList}
-                ></FormControl>
-              </Form>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={{ span: 12, offset: 0 }}>
-              {cities.map(city => (
-                <div key={city._id}>
-                  <CityCard city={city} />
-                </div>
-              ))}
-            </Col>
-          </Row>
-        </Container>
+        <div className="container">
+          <div>
+            <h5 className="cityHeaderTxt">Filter our current cities:</h5>{" "}
+          </div>
+          <Form inline>
+            <FormControl
+              id="search-bar"
+              type="text"
+              placeholder="Search"
+              onChange={this.filterList}
+            ></FormControl>
+          </Form>
+
+          {cities.map(city => (
+            <div key={city._id} id="city-page">
+              <CityCard city={city} />
+            </div>
+          ))}
+        </div>
       </React.Fragment>
     );
   }

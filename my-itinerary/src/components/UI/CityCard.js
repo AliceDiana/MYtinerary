@@ -1,18 +1,16 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
 const CityCard = props => (
   <Link to={"/itinerary/" + props.city._id}>
-    <Card className="cityCard">
-      <Card.Img variant="top" src={props.city.img} />
-      <Card.Body>
-        <Card.Title className="cardTitle">
-          {" "}
-          {props.city.name},{props.city.country}{" "}
-        </Card.Title>
-      </Card.Body>
-    </Card>
+    <div class="city-card">
+      <div>
+        <h5 className="card-title">{props.city.name}</h5>
+      </div>
+      <div>
+        <p className="card-subtitle">{props.city.country}</p>
+      </div>
+    </div>
   </Link>
 );
 

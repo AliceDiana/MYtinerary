@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux"; // connect component to  redux store.
-import { Container } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Image from "react-bootstrap/Image";
 import Toggle from "./UI/Toggle";
 import { fetchItineraries } from "../store/actions/itineraryAction";
+import Button from "react-bootstrap/Button";
+import BannerCity from "./UI/BannerCity";
 
 class ItineraryList extends React.Component {
   constructor(props) {
@@ -42,62 +45,72 @@ class ItineraryList extends React.Component {
 
   render() {
     let itineraries = this.state.itineraries;
+    let city = this.props.cities;
+    console.log(city);
     return (
       <React.Fragment>
-        <Container>
-          <div>
-            <h5>Available MYtineraries:</h5>
-          </div>
-          <div>
-            {itineraries.map(itinerary => (
-              <div key={itinerary._id}>
-                <React.Fragment>
-                  <Container className="containerFlexbox">
-                    <div className="itineraryHeader">
-                      <Image
-                        className="user"
-                        roundedCircle
-                        src={itinerary.img}
-                      />
-                      <div className="hostName">
-                        <h6>{itinerary.title}</h6>
-                        <p>{itinerary.host} </p>
-                      </div>
-                    </div>
-                    <div className="detailsBox">
-                      <p>{itinerary.rating}</p>
-
-                      <p>{itinerary.duration}</p>
-
-                      <p>{itinerary.price}</p>
-
-                      <p>{itinerary.hashtags}</p>
-                    </div>
-                    <div className="activityToggle">
-                      {this.state.selectedID === itinerary._id ? (
-                        <Toggle itinerary_id={itinerary._id} />
-                      ) : null}
-                      <button
-                        className="button"
-                        onClick={() => this.changeSelectedID(itinerary._id)}
-                      >
-                        View All
-                      </button>
-                    </div>
-                  </Container>
-                </React.Fragment>
+        <div className="banner-image" key={this.props.city._id}>
+          <BannerCity city={this.props.city} />
+        </div>
+        <div>
+          <h5 className="itinerary-text">Available MYtineraries:</h5>
+        </div>
+        {itineraries.map(itinerary => (
+          <div key={itinerary._id} className="card-container">
+            <div className="itinerary-header">
+              <div className="user">
+                <Image src={itinerary.img} alt="host" />
               </div>
-            ))}
+              <div className="itinerary-title">
+                <h6>
+                  <strong>{itinerary.title}</strong>
+                </h6>
+
+                <p>{itinerary.host} </p>
+              </div>
+            </div>
+            <div className="detailsBox">
+              <p>
+                {itinerary.rating}{" "}
+                <FontAwesomeIcon className="iStar" icon={faStar} />
+              </p>
+
+              <p>{itinerary.duration}</p>
+
+              <p>{itinerary.price}</p>
+            </div>
+            <div className="hashtags">
+              <p>{itinerary.hashtags}</p>
+            </div>
+
+            {this.state.selectedID === itinerary._id ? (
+              <Toggle itinerary_id={itinerary._id} />
+            ) : null}
+            <div className="activity-toggle">
+              <Button
+                variant="light"
+                id="view-all-button"
+                onClick={() => this.changeSelectedID(itinerary._id)}
+              >
+                View Activities
+              </Button>
+            </div>
           </div>
-        </Container>
+        ))}
       </React.Fragment>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  itineraries: state.itineraries.itineraries,
-  pending: state.cities.pending
-});
+const mapStateToProps = state => {
+  let path = window.location.pathname;
+  console.log(path);
+  return {
+    itineraries: state.itineraries.itineraries,
+    pending: state.cities.pending,
+
+    city: state.cities.cities.find(city => "/itinerary/" + city._id === path)
+  };
+};
 
 export default connect(mapStateToProps, { fetchItineraries })(ItineraryList);

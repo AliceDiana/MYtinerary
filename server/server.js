@@ -15,7 +15,7 @@ app.use(
   })
 );
 
-app.use("/uploads", express.static("uploads"));
+app.use("*/uploads", express.static("uploads"));
 app.use(cors());
 app.use("/cities", require("./routes/cities"));
 app.use("/itineraries", require("./routes/itinerary"));

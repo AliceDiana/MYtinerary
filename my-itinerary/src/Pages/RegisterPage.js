@@ -1,17 +1,16 @@
 import React from "react";
 import NavBarV2 from "../components/UI/NavbarV2";
-import CityList from "../components/CityList";
-
+import RegisterForm from "../components/UI/Auth/RegisterForm";
 import Toolbar from "../components/UI/Toolbar";
 
-const CitiesPage = props => (
+const RegisterPage = props => (
   <React.Fragment>
     <NavBarV2 />
-
-    <CityList />
-
+    <div className="container">
+      <RegisterForm />
+    </div>
     <Toolbar />
   </React.Fragment>
 );
 
-export default CitiesPage;
+export default RegisterPage;

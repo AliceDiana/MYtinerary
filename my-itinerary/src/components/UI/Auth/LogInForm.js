@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -60,50 +59,37 @@ class LogInForm extends Component {
     } else {
       return (
         <React.Fragment>
-          <Container id="containerLandingV2">
-            <Modal.Dialog>
-              <Modal.Header>
-                <Modal.Title> Login </Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                {this.state.msg ? (
-                  <Alert variant="danger">{this.state.msg}</Alert>
-                ) : null}
-                <Form onSubmit={this.onSubmit}>
-                  <Row>
-                    <Col>
-                      <Form.Label>Email address</Form.Label>
-                      <Form.Control
-                        type="email"
-                        name="email"
-                        placeholder="Enter email"
-                        onChange={this.onChange}
-                      />
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col>
-                      <Form.Label>Password</Form.Label>
-                      <Form.Control
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        onChange={this.onChange}
-                      />
-                    </Col>
-                  </Row>
+          <Modal.Dialog id="register-form">
+            <Modal.Header>
+              <Modal.Title> Login </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {this.state.msg ? (
+                <Alert variant="danger">{this.state.msg}</Alert>
+              ) : null}
+              <Form onSubmit={this.onSubmit}>
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
+                  onChange={this.onChange}
+                />
 
-                  <Row>
-                    <Col>
-                      <Button variant="primary" type="submit">
-                        Login
-                      </Button>
-                    </Col>
-                  </Row>
-                </Form>
-              </Modal.Body>
-            </Modal.Dialog>
-          </Container>
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  onChange={this.onChange}
+                />
+
+                <Button id="login-button" variant="dark" type="submit">
+                  Login
+                </Button>
+              </Form>
+            </Modal.Body>
+          </Modal.Dialog>
         </React.Fragment>
       );
     }

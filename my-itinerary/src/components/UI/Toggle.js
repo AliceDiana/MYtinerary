@@ -5,7 +5,7 @@ import { fetchActivities } from "../../store/actions/activityAction";
 
 class Toggle extends Component {
   state = {
-    width: 300
+    width: 353
   };
 
   componentDidMount() {

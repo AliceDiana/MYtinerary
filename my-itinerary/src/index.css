@@ -62,143 +62,247 @@
   margin-left: 156px;
 } */
 
-/*************************** Style Landing Page 2 *******************************/
-#containerLandingV2 {
+/*************************** Style Layout *******************************/
+
+.container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
 }
 
+/* Style NavBar */
+
+.iImage {
+  height: 50px;
+  padding-right: 11px;
+}
+
+.iAvatar {
+  font-size: 24px;
+  margin-top: 12px;
+  padding-right: 11px;
+}
+
+.nav-item {
+  display: flex;
+  color: whitesmoke;
+  font-size: 19px;
+  align-self: center;
+}
+
+/* Style Toolbar */
+.icon {
+  color: whitesmoke;
+  font-size: 20px;
+  padding-left: 2px;
+}
+
+.svg-inline--fa {
+  margin-left: 9px;
+}
+
+.icon:hover {
+  color: grey;
+}
+
+/*************************** Style Landing Page 2 *******************************/
+
 /* Style Body */
+
 .logo img {
   width: 100%;
   margin-top: 10px;
 }
 
-.LandingFirstTextV2 {
-  text-align: center;
+.landingFirstTextV2 {
   margin-top: 15px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.browse-button {
+  margin-top: 20px;
+}
+.browse-text {
   font-size: 22px;
 }
 
 .iArrow {
   color: darkslategrey;
-  font-size: 80px;
-  margin-top: 20px;
+  font-size: 25px;
+  margin-left: 3px;
+  margin-bottom: -3px;
 }
 
-/* Style NavBar */
-
-.avatar {
-  width: 100%;
+.landingSlider {
+  margin-top: 27px;
+  border-style: outset;
 }
 
-.iAvatar {
-  font-size: 20px;
-}
-
-.sticky-nav {
-  position: sticky;
-  top: 0;
-}
-.navbar-toggler {
-  margin-left: 54px;
-}
-
-.nav-item {
-  color: whitesmoke;
-  font-size: 19px;
-}
-
-/* Style Toolbar */
-
-#toolbar {
-  width: 100%;
-  height: 60px; /* Height of the footer */
-}
-
-.iHome {
-  font-size: 30px;
-  color: darkslategrey;
-  margin-left: 160px;
+.landingSlider img {
+  width: 100px;
+  height: 250px;
 }
 
 /*************************** Style City Page  *******************************/
-
-.cityCard {
-  margin-top: 10px;
-  margin-bottom: 20px;
+.cityHeaderTxt {
+  margin-top: 25px;
 }
 
-.cardTitle {
-  color: black;
-  font-size: 14px;
+#search-bar {
+  margin-top: 9px;
+  width: 100%;
+}
+
+#city-page {
+  width: 74%;
+  margin-top: 12px;
   text-align: center;
+  border-style: outset;
+  border-width: 1px;
+  border-color: black;
+  background-color: silver;
+}
+
+.city-card {
+  display: flex;
+  flex-direction: column;
+  height: 44px;
+}
+
+.card-title {
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.card-subtitle {
+  color: black;
+  font-size: 10px;
+  margin-top: 0;
 }
 
 /*************************** Style Itinerary Page  *******************************/
 
-.itineraryCard {
-  height: 100%;
+.image-banner {
+  margin-top: 10px;
   width: 100%;
 }
-.ItineraryPageTx {
-  margin-bottom: 10px;
+
+.itinerary-text {
+  margin-top: 15px;
+}
+.another-city-link {
+  margin-top: 5px;
 }
 
-.hostPicture {
-  max-width: 230px;
-  max-height: 95px;
-  width: auto;
-  height: auto;
+/** itinerary card **/
+.card-container {
+  display: flex;
+  flex-direction: column;
+  border-style: outset;
+  width: 102%;
 }
 
-.ratingTag,
-.hashTags {
-  margin-left: 86px;
+.itinerary-header {
+  display: flex;
+  justify-content: flex-start;
 }
-
-.CheckAnotherCity {
-  margin-top: 66px;
-  margin-left: -20px;
-}
-
-.ActivityPic {
-  width: 94%;
-}
-
-.slick-arrow.slick-prev {
-  left: -4% !important;
-  z-index: 1;
-  color: grey;
-}
-.slick-arrow.slick-next {
-  right: 1% !important;
-  z-index: 1;
-  color: black;
-}
-
-.containerFlexbox {
-  display: flex; /* or inline-flex */
+.itinerary-title {
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border-style: solid;
+  margin-left: 18px;
 }
 
 .user {
-  width: 20%;
-  height: auto;
+  margin-top: 6px;
+  margin-left: 4px;
 }
-.hostName {
-  display: flex; /* or inline-flex */
-  flex-direction: column;
+
+.user img {
+  max-width: 57px;
+  height: 63px;
+  border-radius: 25px;
 }
 
 .detailsBox,
-.itineraryHeader {
-  display: flex; /* or inline-flex */
-  flex-direction: row;
+.hashtags {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 19px;
+  height: 42px;
+}
+.detailsBox,
+.hashtags > p {
+  padding: 10px;
+}
+
+/** activity  slider  **/
+
+.activity-toggle {
+  height: 54px;
+}
+
+#view-all-button {
+  position: absolute;
+  margin-top: 7px;
+  margin-left: 8px;
+}
+
+.toggle-text {
+  margin-left: 7px;
+}
+
+.activity-slider {
+  margin-left: 31px;
+  height: 100%;
+}
+
+.activity-card img {
+  height: 91px;
+  width: 110px;
+}
+
+#activity-title {
+  height: 0px;
+}
+
+/* .slick-slide {
+  margin: 0 27px;
+}
+*/
+/* the parent */
+/* .slick-list {
+  margin: 0 -27px;
+} */
+
+.slick-arrow.slick-prev {
+  left: 0% !important;
+  z-index: 1;
+}
+.slick-arrow.slick-next {
+  right: 2% !important;
+  z-index: 1;
+}
+
+/*************************** Register  & Login Page  *******************************/
+
+#register-form {
+  margin-top: 60px;
+  width: 294px;
+  height: 297px;
+}
+
+#login-button {
+  margin-top: 16px;
+}
+
+#raised-button-file {
+  margin-top: 15px;
+  border-style: outset;
+  width: 70%;
 }
