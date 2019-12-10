@@ -38,18 +38,20 @@ router.post("/", upload.single("avatar"), (req, res) => {
 
   //If user does not exist, we create a new user
   const newUser = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    avatar: req.file.path
+    local: {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      avatar: req.file.path
+    }
   });
 
   //Create salt & hash
 
   bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(newUser.password, salt, (err, hash) => {
+    bcrypt.hash(newUser.local.password, salt, (err, hash) => {
       if (err) throw err;
-      newUser.password = hash; //password saved as hash
+      newUser.local.password = hash; //password saved as hash
       newUser.save().then(user => {
         //saved the user and //I want to create the token
         jwt.sign(
@@ -63,10 +65,10 @@ router.post("/", upload.single("avatar"), (req, res) => {
             res.json({
               token, //once we have registered it will give us the token
               user: {
-                id: newUser.id,
-                name: newUser.name,
-                email: newUser.email,
-                avatar: newUser.avatar
+                id: newUser.local.id,
+                name: newUser.local.name,
+                email: newUser.local.email,
+                avatar: newUser.local.avatar
               }
             });
           }

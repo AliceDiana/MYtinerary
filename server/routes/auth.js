@@ -5,8 +5,8 @@ const bcrypt = require("bcryptjs");
 const config = require("config");
 const jwt = require("jsonwebtoken");
 const auth = require("./middleware/auth");
-
-//@route POST /auth
+const passport = require("passport");
+//@route POST/auth
 //@desc  Authorizing user
 //@access  Public
 
@@ -47,7 +47,7 @@ router.post("/", (req, res) => {
   });
 });
 
-//@route GET /auth/user
+//@route GET/user
 //@desc  Authorizing user (Validate user with the token)
 //@access  Private
 
@@ -55,6 +55,20 @@ router.get("/user", auth, (req, res) => {
   User.findById(req.user.id)
     .select("-password")
     .then(user => res.json(user));
+});
+
+// auth with google+
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"]
+  })
+);
+
+// callback route for google to redirect to
+// hand control to passport to use code to grab profile info
+router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+  res.send("you reached the redirect URI");
 });
 
 module.exports = router;

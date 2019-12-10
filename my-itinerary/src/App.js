@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import LandingPageV2 from "./Pages/LandingV2";
 import CitiesPage from "./Pages/Cities";
 import ItinerariesPage from "./Pages/Itineraries";
-
 import RegisterPage from "./Pages/RegisterPage";
 import { loadUser } from "./store/actions/authAction";
 import "./App.css";

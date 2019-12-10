@@ -3,6 +3,7 @@
 # dependencies
 /my-itinerary/node_modules
 /server/node_modules
+googlekeys.js
 keys.js
 default.json
 /my-itinerary/.pnp
