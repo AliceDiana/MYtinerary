@@ -32,10 +32,10 @@ export default function(state = initialState, action) {
       };
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem("token", action.payload.token); //token sent as payload
       return {
         ...state,
-        ...action.payload,
+        ...action.payload, // payload cos we want both user and token
         isAuthenticated: true,
         isLoading: false
       };
@@ -43,7 +43,7 @@ export default function(state = initialState, action) {
     case LOGIN_FAIL:
     case LOGOUT_SUCCESS:
     case REGISTER_FAIL:
-      localStorage.removeItem("token");
+      localStorage.removeItem("token"); //token clears out
       return {
         ...state,
         token: null,

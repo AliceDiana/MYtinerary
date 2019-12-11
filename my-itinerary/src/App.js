@@ -28,7 +28,7 @@ class App extends Component {
       console.log(localStorage.getItem("token"));
     }
     if (localStorage.getItem("token")) {
-      this.props.loadUser();
+      this.props.loadUser(); // when app mounts, we call this loadUser
       window.history.replaceState(null, null, `${window.location.origin}`);
     }
   }

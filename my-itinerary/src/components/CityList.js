@@ -39,13 +39,16 @@ class CityList extends React.Component {
       <React.Fragment>
         <div className="container">
           <div>
-            <h5 className="cityHeaderTxt">Filter our current cities:</h5>{" "}
+            <img
+              className="city-banner "
+              src={require("../Images/CITIES.jpg")}
+              alt="banner"
+            />
           </div>
-          <Form inline>
+          <Form id="search-bar" inline>
             <FormControl
-              id="search-bar"
               type="text"
-              placeholder="Search"
+              placeholder="Browse a city.."
               onChange={this.filterList}
             ></FormControl>
           </Form>

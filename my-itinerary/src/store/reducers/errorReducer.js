@@ -7,8 +7,7 @@ const initialState = {
   id: null
 };
 
-//reducer function
-
+//reducer function get initial state and action type
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_ERRORS:

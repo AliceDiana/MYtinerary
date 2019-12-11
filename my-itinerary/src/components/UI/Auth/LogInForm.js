@@ -59,7 +59,7 @@ class LogInForm extends Component {
     } else {
       return (
         <React.Fragment>
-          <Modal.Dialog id="register-form">
+          <Modal.Dialog id="login-form">
             <Modal.Header>
               <Modal.Title> Login </Modal.Title>
             </Modal.Header>

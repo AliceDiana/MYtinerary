@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { register } from "../../../store/actions/authAction";
 import { clearErrors } from "../../../store/actions/errorAction";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Modal from "react-bootstrap/Modal";
-import { Redirect } from "react-router-dom";
 
 class RegisterForm extends Component {
   state = {
-    modal: false,
     name: "",
     email: "",
     password: "",
     avatar: [],
-    msg: null
+    msg: null //if we  have an error, I want to be show a msg
   };
 
   static propTypes = {
@@ -45,7 +43,6 @@ class RegisterForm extends Component {
   };
 
   uploadPicture = e => {
-    console.log(e.target.files[0]);
     //save the uploaded pic in the state
     this.setState({
       avatar: e.target.files[0]
@@ -105,13 +102,18 @@ class RegisterForm extends Component {
                   placeholder="Password"
                   onChange={this.onChange}
                 />
-                <input
-                  accept="image/*"
-                  id="raised-button-file"
-                  type="file"
-                  name="file"
-                  onChange={this.uploadPicture}
-                />{" "}
+                <label id="label-upload">
+                  {" "}
+                  Upload your photo:
+                  <input
+                    accept="image/*"
+                    id="upload-photo"
+                    type="file"
+                    name="file"
+                    onChange={this.uploadPicture}
+                  />
+                </label>
+
                 <Button id="login-button" variant="dark" type="submit">
                   Sign up
                 </Button>
@@ -124,8 +126,8 @@ class RegisterForm extends Component {
   }
 }
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  error: state.error
+  isAuthenticated: state.auth.isAuthenticated, //from rootreducer
+  error: state.error //from rootreducer
 });
 
 export default connect(mapStateToProps, { register, clearErrors })(

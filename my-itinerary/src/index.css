@@ -77,7 +77,6 @@
 
 .iImage {
   height: 50px;
-  padding-right: 11px;
 }
 
 .iAvatar {
@@ -91,6 +90,11 @@
   color: whitesmoke;
   font-size: 19px;
   align-self: center;
+}
+
+#logout {
+  margin-left: 12px;
+  margin-top: 9px;
 }
 
 /* Style Toolbar */
@@ -158,13 +162,14 @@
 }
 
 #city-page {
-  width: 74%;
+  width: 100%;
   margin-top: 12px;
   text-align: center;
   border-style: outset;
   border-width: 1px;
   border-color: black;
-  background-color: silver;
+  background-color: lightgray;
+  border-radius: 5px;
 }
 
 .city-card {
@@ -180,21 +185,26 @@
 }
 .card-subtitle {
   color: black;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 /*************************** Style Itinerary Page  *******************************/
 
-.image-banner {
+.itinerary-banner {
   margin-top: 10px;
-  width: 100%;
+  width: 102%;
+}
+
+.city-banner {
+  margin-top: 10px;
+  width: 365px;
 }
 
 .itinerary-text {
   margin-top: 15px;
 }
 .another-city-link {
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 /** itinerary card **/
@@ -292,14 +302,24 @@
 #register-form {
   width: 294px;
   height: 297px;
+  margin-top: 32px;
+}
+
+#login-form {
+  width: 294px;
+  height: 297px;
 }
 
 #login-button {
   margin-top: 16px;
 }
 
-#raised-button-file {
-  margin-top: 15px;
+#label-upload {
+  margin-top: 10px;
+}
+
+#upload-photo {
+  margin-top: 3px;
   border-style: outset;
   width: 70%;
 }

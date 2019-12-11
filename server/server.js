@@ -4,19 +4,20 @@ const cors = require("cors");
 // Requiring necessary packages
 const express = require("express");
 const bodyParser = require("body-parser");
-// Requiring passport as we've configured it
+
+// Requiring passport
 const passport = require("passport");
+const passportSetup = require("./config/passport");
+
+// DB config
 const config = require("config");
 const db = config.get("mongoURI");
 
 // Setting up port
 const port = process.env.PORT || 5000;
 
-// Creating express app and configuring middleware needed for authentication
 const app = express();
 const cookieSession = require("cookie-session");
-
-const passportSetup = require("./config/passport");
 const googleKeys = require("./config/googleKeys");
 // const db = require("../server/config/keys").mongoURI;
 app.use(express.json());
@@ -38,6 +39,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//Use Routes
 app.use("*/uploads", express.static("uploads"));
 app.use(cors());
 app.use("/cities", require("./routes/cities"));

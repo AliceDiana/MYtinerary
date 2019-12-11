@@ -12,8 +12,6 @@ const settings = {
 };
 
 const ActivityCarousel = props => {
-  console.log(props.activity);
-
   return (
     <React.Fragment>
       <Slider className="activity-slider" {...settings}>

@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../model/userModel");
-const bcrypt = require("bcryptjs");
-const config = require("config");
-const jwt = require("jsonwebtoken");
-const auth = require("./middleware/auth");
-const passport = require("passport");
+const User = require("../model/userModel"); // user model
+const bcrypt = require("bcryptjs"); // hash password
+const config = require("config"); // manage configuration values easily
+const jwt = require("jsonwebtoken"); // token
+const auth = require("./middleware/auth"); //middleware to make route private
+const passport = require("passport"); // middleware
 
 //@route POST/auth
-//@desc  Authorizing user
+//@desc  Authenticate user
 //@access  Public
 
 router.post("/", (req, res) => {
@@ -18,14 +18,15 @@ router.post("/", (req, res) => {
   if (!email || !password) {
     return res.status(400).json({ msg: "please enter all fields" });
   }
-
-  //check existing user
+  //Check existing user
   User.findOne({ "local.email": email }).then(user => {
     if (!user) return res.status(400).json({ msg: "User does not exists" });
     // Validate password
     bcrypt.compare(password, user.local.password).then(isMatch => {
+      //compare method : plain txt password vs  hashed password
       if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
       jwt.sign(
+        //signing the token
         { id: user.id },
         config.get("jwtSecret"),
         {
@@ -49,12 +50,13 @@ router.post("/", (req, res) => {
 });
 
 //@route GET/user
-//@desc  Authorizing user (Validate user with the token)
+//@desc  Get current user data by using token
+//jwt auth is stateless, token not stored in the server, we need a way to constantly validate token
 //@access  Private
 
 router.get("/user", auth, (req, res) => {
-  User.findById(req.user.id)
-    .select("-password")
+  User.findById(req.user.id) // i want the user by mongo id
+    .select("-password") // without the password
     .then(user => {
       if (user["provider"].socialId) {
         res.json(user.provider);
@@ -64,7 +66,7 @@ router.get("/user", auth, (req, res) => {
     });
 });
 
-// auth with google+
+// Auth with google+
 router.get(
   "/google",
   passport.authenticate("google", {

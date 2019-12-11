@@ -20,7 +20,7 @@ class NavBarV2 extends Component {
 
     const authLinks = (
       <Fragment>
-        <LogOut />
+        <LogOut id="logout" />
       </Fragment>
     );
 
@@ -54,13 +54,6 @@ class NavBarV2 extends Component {
 
             {isAuthenticated ? authLinks : guestLinks}
           </NavItem>
-          {/* <div>
-            <Navbar.Text>
-           
-                <strong>{user ? `Welcome ${user.name}` : ""}</strong>
-           
-            </<Navbar.Text>>
-          </div> */}
 
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse>
