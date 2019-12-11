@@ -14,9 +14,10 @@ const port = process.env.PORT || 5000;
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
+const cookieSession = require("cookie-session");
 
 const passportSetup = require("./config/passport");
-
+const googleKeys = require("./config/googleKeys");
 // const db = require("../server/config/keys").mongoURI;
 app.use(express.json());
 app.use(
@@ -24,6 +25,18 @@ app.use(
     extended: true
   })
 );
+
+// set up session cookies
+app.use(
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000, //max age of the cookie that we send out (1day in milliseconds)
+    keys: [googleKeys.session.cookieKey] //keys to encrypt cookie when we send it to the browser
+  })
+);
+
+// initialize passport and the use session cookies
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("*/uploads", express.static("uploads"));
 app.use(cors());

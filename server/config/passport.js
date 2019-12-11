@@ -1,7 +1,18 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GoogleKeys = require("./googleKeys");
-const userSchema = require("../model/userModel");
+const User = require("../model/userModel"); // User Model
+
+passport.serializeUser((user, done) => {
+  done(null, user.id); // in the done function we are passing the user (mongo id)
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    // we find the user based on the mongo id. Then, we retrieve the user
+    done(null, user); // done passes the user to the next stage
+  });
+});
 
 passport.use(
   new GoogleStrategy(
@@ -13,20 +24,29 @@ passport.use(
     },
     (accessToken, refreshToken, profile, done) => {
       // passport callback function
-      console.log("passport callback function fired:");
-      console.log(profile);
-      new userSchema({
-        provider: {
-          socialId: profile.id,
-          name: profile.displayName,
-          avatar: profile.photos[0].value,
-          email: profile.emails[0].value
+      User.findOne({ "provider.socialId": profile.id }).then(currentUser => {
+        if (currentUser) {
+          // already have this user
+          console.log("user is: ", currentUser);
+          done(null, currentUser); // we find the user o create a new one, and pass the info to the deserialize function
+        } else {
+          console.log("profile", profile);
+          new User({
+            provider: {
+              socialId: profile.id,
+              name: profile.displayName,
+              avatar: profile.photos[0].value,
+              email: profile.emails[0].value,
+              token: accessToken
+            }
+          })
+            .save()
+            .then(newUser => {
+              console.log("new user created: ", newUser);
+              done(null, newUser);
+            });
         }
-      })
-        .save()
-        .then(userSchema => {
-          console.log("new user created: ", userSchema);
-        });
+      });
     }
   )
 );

@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 //middleware function to fetch token
 function auth(req, res, next) {
   const token = req.header("x-auth-token");
-  console.log(token);
+  console.log("Token", token);
 
   // Check for token
   if (!token)

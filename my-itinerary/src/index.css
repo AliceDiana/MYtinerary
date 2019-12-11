@@ -177,12 +177,10 @@
   color: black;
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 0;
 }
 .card-subtitle {
   color: black;
   font-size: 10px;
-  margin-top: 0;
 }
 
 /*************************** Style Itinerary Page  *******************************/
@@ -306,7 +304,7 @@
   width: 70%;
 }
 .new-user {
-  margin-top: 34px;
+  margin-top: 80px;
 }
 
 /*** Google LogIn***/

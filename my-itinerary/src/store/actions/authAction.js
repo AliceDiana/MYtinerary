@@ -107,7 +107,9 @@ export const logout = () => {
 
 export const tokenConfig = getState => {
   // Get token from localStorage
-  const token = getState().auth.token;
+  const token = localStorage.getItem("token");
+
+  console.log(localStorage.getItem("token"));
 
   // Headers
   const config = {

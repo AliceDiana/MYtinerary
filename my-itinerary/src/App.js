@@ -10,11 +10,29 @@ import { loadUser } from "./store/actions/authAction";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LogInPage from "./Pages/LogInPage";
+import queryString from "query-string";
 
 class App extends Component {
   componentDidMount() {
-    this.props.loadUser();
+    var query = queryString.parse(window.location.href);
+    console.log(query["http://localhost:3000/?token"]);
+
+    if (query["http://localhost:3000/?token"]) {
+      window.localStorage.setItem(
+        "token",
+        query["http://localhost:3000/?token"].slice(
+          0,
+          query["http://localhost:3000/?token"].length - 1
+        )
+      );
+      console.log(localStorage.getItem("token"));
+    }
+    if (localStorage.getItem("token")) {
+      this.props.loadUser();
+      window.history.replaceState(null, null, `${window.location.origin}`);
+    }
   }
+
   render() {
     return (
       <BrowserRouter>

@@ -6,6 +6,7 @@ const config = require("config");
 const jwt = require("jsonwebtoken");
 const auth = require("./middleware/auth");
 const passport = require("passport");
+
 //@route POST/auth
 //@desc  Authorizing user
 //@access  Public
@@ -19,10 +20,10 @@ router.post("/", (req, res) => {
   }
 
   //check existing user
-  User.findOne({ email: email }).then(user => {
+  User.findOne({ "local.email": email }).then(user => {
     if (!user) return res.status(400).json({ msg: "User does not exists" });
     // Validate password
-    bcrypt.compare(password, user.password).then(isMatch => {
+    bcrypt.compare(password, user.local.password).then(isMatch => {
       if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
       jwt.sign(
         { id: user.id },
@@ -36,9 +37,9 @@ router.post("/", (req, res) => {
             token,
             user: {
               id: user.id,
-              name: user.name,
-              email: user.email,
-              avatar: user.avatar
+              name: user.local.name,
+              email: user.local.email,
+              avatar: user.local.avatar
             }
           });
         }
@@ -54,7 +55,13 @@ router.post("/", (req, res) => {
 router.get("/user", auth, (req, res) => {
   User.findById(req.user.id)
     .select("-password")
-    .then(user => res.json(user));
+    .then(user => {
+      if (user["provider"].socialId) {
+        res.json(user.provider);
+      } else {
+        res.json(user.local);
+      }
+    });
 });
 
 // auth with google+
@@ -68,7 +75,12 @@ router.get(
 // callback route for google to redirect to
 // hand control to passport to use code to grab profile info
 router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-  res.send("you reached the redirect URI");
+  var token = jwt.sign({ id: req.user._id }, config.get("jwtSecret"), {
+    expiresIn: 3600
+  });
+  console.log("Token google", token, req.user);
+
+  res.redirect(`http://localhost:3000/?token=${token}`);
 });
 
 module.exports = router;
