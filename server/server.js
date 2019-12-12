@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-// Requiring necessary packages
+/* Requiring necessary packages*/
 const express = require("express");
 const bodyParser = require("body-parser");
 
-// Requiring passport
+/*Requiring passport*/
 const passport = require("passport");
 const passportSetup = require("./config/passport");
 
-// DB config
+/* config*/
 const config = require("config");
 const db = config.get("mongoURI");
 
-// Setting up port
+/* Setting up port*/
 const port = process.env.PORT || 5000;
 
 const app = express();
@@ -27,7 +27,7 @@ app.use(
   })
 );
 
-// set up session cookies
+/* set up session cookies*/
 app.use(
   cookieSession({
     maxAge: 24 * 60 * 60 * 1000, //max age of the cookie that we send out (1day in milliseconds)
@@ -35,11 +35,11 @@ app.use(
   })
 );
 
-// initialize passport and the use session cookies
+/*initialize passport and the use session cookies*/
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Use Routes
+/*use Routes*/
 app.use("*/uploads", express.static("uploads"));
 app.use(cors());
 app.use("/cities", require("./routes/cities"));
